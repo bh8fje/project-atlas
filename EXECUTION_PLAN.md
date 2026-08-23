@@ -1,6 +1,6 @@
 # Project Atlas Execution Plan
 
-- Version: 1.1
+- Version: 1.2
 - Status: COMPLETED
 
 ## 1. Project Mission
@@ -289,6 +289,16 @@ AI 主动：
 - 首次访问跟随系统语言
 - 用户显式选择并保存在本机浏览器
 
+#### TASK-022 Chinese-first Plain Language
+
+状态：COMPLETED
+
+要求：
+
+- 面向用户的中文文案必须浅显易懂
+- 其他语言以中文含义为翻译源
+- 用户界面不展示内部架构术语
+
 ## 4. Task Execution Rules
 
 所有 Task 必须遵循以下规则。
@@ -350,8 +360,8 @@ AI 不能：
 ## 7. Current Execution State
 
 - Current Phase: Phase 7 - Global Experience — COMPLETED
-- Completed: TASK-001 至 TASK-021
-- Current: 无（Execution Plan 1.1 已完成）
+- Completed: TASK-001 至 TASK-022
+- Current: 无（Execution Plan 1.2 已完成）
 - Next: 无；等待新的明确 Task
 
 ## 8. Final Vision

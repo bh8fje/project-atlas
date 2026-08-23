@@ -11,8 +11,8 @@ import {
   translations,
 } from './i18n';
 
-const milestoneVersions = ['v0.19.0', 'v0.18.0', 'v0.15.0', 'v0.14.0'];
-const metricValues = ['21', '144', '20', '0'];
+const milestoneVersions = ['v0.21.0', 'v0.19.0', 'v0.15.0', 'v0.14.0'];
+const metricValues = ['22', '148', '21', '0'];
 
 const Icon = ({ children }: { children: React.ReactNode }) => (
   <span className="nav-icon" aria-hidden="true">{children}</span>
@@ -71,7 +71,7 @@ export default function Home() {
           <span className="pulse" />
           <div><strong>{t.localOnly}</strong><small>{t.dataStays}</small></div>
         </div>
-        <p className="sidebar-foot">Project Atlas · v0.21.0</p>
+        <p className="sidebar-foot">Project Atlas · v0.22.0</p>
       </aside>
 
       <main className="content">
@@ -98,15 +98,15 @@ export default function Home() {
           <div className="hero-orbit" aria-label={t.graphSummary}>
             <span className="orbit orbit-one" /><span className="orbit orbit-two" />
             <span className="node node-core">Atlas</span>
-            <span className="node node-a">144<small>{t.tests}</small></span>
-            <span className="node node-b">21<small>{t.tasks}</small></span>
-            <span className="node node-c">20<small>{t.decisionsShort}</small></span>
+            <span className="node node-a">148<small>{t.tests}</small></span>
+            <span className="node node-b">22<small>{t.tasks}</small></span>
+            <span className="node node-c">21<small>{t.decisionsShort}</small></span>
           </div>
         </section>
 
         <section className="mobile-glance" aria-label={t.mobileSummary}>
           <div><span className="pulse" /><strong>{t.systemsSteady}</strong></div>
-          <span>144 {t.tests} · v0.21.0</span>
+          <span>148 {t.tests} · v0.22.0</span>
         </section>
 
         <section className="metrics" aria-label={t.metricsLabel}>
@@ -131,8 +131,8 @@ export default function Home() {
             <div className="health-ring"><div><strong>100%</strong><small>{t.testsPassing}</small></div></div>
             <div className="health-grid">
               <div><span>{t.workingTree}</span><strong>{t.clean}</strong></div>
-              <div><span>{t.currentVersion}</span><strong>v0.21.0</strong></div>
-              <div><span>{t.latestTask}</span><strong>TASK-021</strong></div>
+              <div><span>{t.currentVersion}</span><strong>v0.22.0</strong></div>
+              <div><span>{t.latestTask}</span><strong>TASK-022</strong></div>
               <div><span>{t.mode}</span><strong>{t.readOnly}</strong></div>
             </div>
           </section>

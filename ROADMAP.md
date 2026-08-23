@@ -48,5 +48,6 @@ Execution Plan 1.0 的 TASK-001 至 TASK-020 已全部完成。后续工作必�
 ## Phase 7 - Global Experience（COMPLETED）
 
 - TASK-021 Internationalization Language Preferences — COMPLETED
+- TASK-022 Chinese-first Plain Language — COMPLETED
 
-TASK-021 已完成：中文、英语、俄语、韩语界面，默认跟随系统，用户偏好仅保存在本机浏览器。等待新的明确 Task。
+TASK-022 已完成：面向用户的文案先写成浅显中文，再据此翻译其他语言。等待新的明确 Task。

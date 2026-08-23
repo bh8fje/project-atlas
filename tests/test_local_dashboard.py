@@ -18,7 +18,7 @@ class LocalDashboardTests(unittest.TestCase):
     def test_dashboard_covers_status_history_and_relationships(self) -> None:
         page = (DASHBOARD / "app" / "page.tsx").read_text()
         translations = (DASHBOARD / "app" / "i18n.ts").read_text()
-        for label in ("Project health", "Project history", "Knowledge map"):
+        for label in ("Project status", "Version history", "Project connections"):
             self.assertIn(label, translations)
         for section_id in ('id="health"', 'id="history"', 'id="relationships"'):
             self.assertIn(section_id, page)
@@ -27,7 +27,7 @@ class LocalDashboardTests(unittest.TestCase):
         page = (DASHBOARD / "app" / "page.tsx").read_text()
         translations = (DASHBOARD / "app" / "i18n.ts").read_text()
         self.assertIn("Local only", translations)
-        self.assertIn("Read only", translations)
+        self.assertIn("View only, no changes", translations)
         self.assertIn("t.localOnly", page)
         self.assertIn("t.readOnly", page)
         self.assertNotIn("fetch(", page)

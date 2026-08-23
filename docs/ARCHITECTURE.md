@@ -40,6 +40,8 @@ TASK-020 在 Intelligence 层建立显式触发的 `AutonomousProjectAgent` 观�
 
 TASK-021 在 Dashboard 客户端层建立类型化中文、英语、俄语、韩语翻译字典。未设置偏好时跟随系统语言；显式偏好只保存在浏览器本地，不进入 Core 或远端服务。
 
+TASK-022 规定 Dashboard 等用户界面以浅显中文为文案源，其他语言按中文含义翻译；工程术语保留在开发与架构文档中。
+
 仓库目前没有具体模型适配器、Git commit 分析、公网服务、后台 Agent 调度、自动操作或 API。
 
 ## 设计约束
@@ -84,3 +86,4 @@ Provider-neutral 项目理解见 [ADR-0013](decisions/ADR-0013-provider-neutral-
 确定性多项目智能见 [ADR-0018](decisions/ADR-0018-deterministic-multi-project-intelligence.md)。
 受控 Autonomous Project Agent 见 [ADR-0019](decisions/ADR-0019-controlled-autonomous-agent.md)。
 本机语言偏好见 [ADR-0020](decisions/ADR-0020-local-language-preferences.md)。
+中文优先产品文案见 [ADR-0021](decisions/ADR-0021-chinese-first-product-language.md)。

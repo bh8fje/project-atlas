@@ -38,7 +38,7 @@ class CommandCenterTests(unittest.TestCase):
         translations = (app / "i18n.ts").read_text()
         self.assertIn('id="command-center"', page)
         self.assertIn("t.noHandlers", page)
-        self.assertIn("No handlers registered", translations)
+        self.assertIn("No actions are available yet", translations)
 
     def test_executes_registered_read_only_command(self) -> None:
         center = CommandCenter()

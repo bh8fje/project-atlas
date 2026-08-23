@@ -4,9 +4,9 @@
 
 Phase 7 - Global Experience（COMPLETED）。
 
-TASK-021 COMPLETED。
+TASK-022 COMPLETED。
 
-当前版本：`v0.21.0`。
+当前版本：`v0.22.0`。
 
 ## 当前能力
 
@@ -51,6 +51,8 @@ TASK-021 COMPLETED。
 - Execution Plan 1.0 的 TASK-001 至 TASK-020 已全部完成。
 - Dashboard 已支持中文、英语、俄语和韩语，未选择偏好时跟随系统语言，不受支持时回退英语。
 - 用户显式语言偏好仅保存在当前浏览器，可随时恢复“跟随系统”。
+- 面向用户的内容已改为浅显中文优先，英语、俄语和韩语均按中文含义翻译。
+- Dashboard 不再使用“供应商无关的分析契约”等内部工程表述介绍功能。
 - 尚无具体模型适配器、Git commit 分析、公网服务或 API。
 
 ## 工程基线
@@ -58,14 +60,14 @@ TASK-021 COMPLETED。
 - 状态：已建立目录、配置、文档与开发规范基线
 - 运行环境：Python 3.11+；Dashboard 构建需要 Node.js 22.13+
 - 测试框架：Python `unittest`
-- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，144 项测试通过；`dashboard/` 生产构建通过
+- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，148 项测试通过；`dashboard/` 生产构建通过
 - 版本控制：Git 已纳入 TASK-001 完成流程
 - 远端镜像：GitHub `bh8fje/project-atlas` 与群晖 `project-atlas.git`
 - 发布规则：所有发布提交必须双推送并分别验证
 - 版本规则：每个里程碑使用带备注的 Git 标签，规范见 `docs/VERSIONING.md`
-- 执行计划：`EXECUTION_PLAN.md` Version 1.1，状态 COMPLETED
+- 执行计划：`EXECUTION_PLAN.md` Version 1.2，状态 COMPLETED
 
 ## 下一步
 
-- Execution Plan 1.1 已完成。
-- 等待新的明确 Task；不加入云端偏好同步、账号系统或新增业务功能。
+- Execution Plan 1.2 已完成。
+- 等待新的明确 Task；面向用户的新文案继续遵循中文优先、浅显易懂规则。
