@@ -46,3 +46,4 @@ git switch -c restore/v0.2.0 v0.2.0
 - `v0.15.0`：TASK-015，显式单轮、可溯源且只读的 AI Project Assistant。
 - `v0.16.0`：TASK-016，独立构建、无云资源且只读的本地 Dashboard。
 - `v0.17.0`：TASK-017，支持安全区域、触控导航和本地安装的移动 Web 访问。
+- `v0.18.0`：TASK-018，显式注册、确认变更且结果可审计的进程内 Command Center。

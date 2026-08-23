@@ -28,12 +28,13 @@ export default function Home() {
           <a className="nav-link" href="#history"><Icon>↗</Icon>History</a>
           <a className="nav-link" href="#relationships"><Icon>⌘</Icon>Relationships</a>
           <a className="nav-link" href="#health"><Icon>◇</Icon>Health</a>
+          <a className="nav-link" href="#command-center"><Icon>›_</Icon>Commands</a>
         </nav>
         <div className="local-card">
           <span className="pulse" />
           <div><strong>Local only</strong><small>Your data stays here</small></div>
         </div>
-        <p className="sidebar-foot">Project Atlas · v0.17.0</p>
+        <p className="sidebar-foot">Project Atlas · v0.18.0</p>
       </aside>
 
       <main className="content">
@@ -51,21 +52,21 @@ export default function Home() {
           <div className="hero-orbit" aria-label="Project graph summary">
             <span className="orbit orbit-one" /><span className="orbit orbit-two" />
             <span className="node node-core">Atlas</span>
-            <span className="node node-a">114<small>tests</small></span>
-            <span className="node node-b">17<small>tasks</small></span>
-            <span className="node node-c">16<small>ADRs</small></span>
+            <span className="node node-a">123<small>tests</small></span>
+            <span className="node node-b">18<small>tasks</small></span>
+            <span className="node node-c">17<small>ADRs</small></span>
           </div>
         </section>
 
         <section className="mobile-glance" aria-label="Mobile project summary">
           <div><span className="pulse" /><strong>All systems steady</strong></div>
-          <span>114 tests · v0.17.0</span>
+          <span>123 tests · v0.18.0</span>
         </section>
 
         <section className="metrics" aria-label="Project metrics">
-          <article><span>Milestones</span><strong>17</strong><small>All published</small></article>
-          <article><span>Tests</span><strong>114</strong><small>Passing baseline</small></article>
-          <article><span>Decisions</span><strong>16</strong><small>Architecture records</small></article>
+          <article><span>Milestones</span><strong>18</strong><small>All published</small></article>
+          <article><span>Tests</span><strong>123</strong><small>Passing baseline</small></article>
+          <article><span>Decisions</span><strong>17</strong><small>Architecture records</small></article>
           <article><span>External calls</span><strong>0</strong><small>Local-first by design</small></article>
         </section>
 
@@ -87,8 +88,8 @@ export default function Home() {
             <div className="health-ring"><div><strong>100%</strong><small>tests passing</small></div></div>
             <div className="health-grid">
               <div><span>Working tree</span><strong>Clean</strong></div>
-              <div><span>Current version</span><strong>v0.17.0</strong></div>
-              <div><span>Latest task</span><strong>TASK-017</strong></div>
+              <div><span>Current version</span><strong>v0.18.0</strong></div>
+              <div><span>Latest task</span><strong>TASK-018</strong></div>
               <div><span>Mode</span><strong>Read only</strong></div>
             </div>
           </section>
@@ -114,12 +115,28 @@ export default function Home() {
           </div>
           <p className="map-note">A read-only projection of Project Atlas’ domain, history, and knowledge relationships.</p>
         </section>
+
+        <section id="command-center" className="panel command-panel">
+          <div className="panel-heading"><div><p className="eyebrow">Command Center</p><h3>One explicit control boundary</h3></div><span>In-process · Auditable</span></div>
+          <div className="command-layout">
+            <div className="command-terminal">
+              <span className="terminal-prompt">atlas / command</span>
+              <strong>No handlers registered</strong>
+              <p>Commands appear only when the host application explicitly registers them.</p>
+            </div>
+            <div className="guardrails">
+              <div><span>01</span><p><strong>Declared effects</strong><small>Every command is read-only or mutating.</small></p></div>
+              <div><span>02</span><p><strong>Explicit confirmation</strong><small>Mutations are rejected until confirmed.</small></p></div>
+              <div><span>03</span><p><strong>Traceable result</strong><small>Request ID, time, status, and output are retained.</small></p></div>
+            </div>
+          </div>
+        </section>
       </main>
       <nav className="mobile-nav" aria-label="Mobile navigation">
         <a className="active" href="#overview"><span>◫</span>Overview</a>
         <a href="#history"><span>↗</span>History</a>
         <a href="#relationships"><span>⌘</span>Map</a>
-        <a href="#health"><span>◇</span>Health</a>
+        <a href="#command-center"><span>›_</span>Commands</a>
       </nav>
     </div>
   );

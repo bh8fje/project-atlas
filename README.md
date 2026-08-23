@@ -100,6 +100,8 @@ with LocalKnowledgeStore("./data/project-atlas.db") as store:
 
 `AIProjectAssistant` 使用同一可替换 Provider 回答单个项目问题。它不会保存会话、执行建议或修改项目。
 
+`CommandCenter` 为宿主应用提供统一的进程内命令入口。命令必须显式注册；声明为变更型的命令必须在请求中明确确认，否则不会调用 Handler。仓库不内置 Shell 或远程执行命令。
+
 ## 开发约定
 
 开始工作前请阅读 [AGENTS.md](AGENTS.md)、[EXECUTION_PLAN.md](EXECUTION_PLAN.md) 与 [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md)。项目状态以 [PROJECT_STATUS.md](PROJECT_STATUS.md) 为准，执行阶段以 [EXECUTION_PLAN.md](EXECUTION_PLAN.md) 为准，方向摘要以 [ROADMAP.md](ROADMAP.md) 为准。

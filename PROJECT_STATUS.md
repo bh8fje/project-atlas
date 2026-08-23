@@ -2,11 +2,11 @@
 
 ## 当前阶段
 
-Phase 5 - Interface（IN PROGRESS）。
+Phase 5 - Interface（COMPLETED）。
 
-TASK-017 COMPLETED。
+TASK-018 COMPLETED。
 
-当前版本：`v0.17.0`。
+当前版本：`v0.18.0`。
 
 ## 当前能力
 
@@ -42,14 +42,16 @@ TASK-017 COMPLETED。
 - Dashboard 未配置云资源，不调用远端服务，不写入 Core。
 - 已提供移动安全区域、触控导航、Viewport 与可安装 Web App Manifest。
 - 移动访问不建立公网入口、账号、后台同步或远程数据通道。
-- 尚无具体模型适配器、Git 分析、控制入口或 API。
+- 已提供显式注册的进程内 `CommandCenter`、副作用声明、变更确认与可审计结果。
+- Command Center 未预置 Handler，不执行 Shell、网络请求或隐式自动化。
+- 尚无具体模型适配器、Git 分析、跨项目智能或 API。
 
 ## 工程基线
 
 - 状态：已建立目录、配置、文档与开发规范基线
 - 运行环境：Python 3.11+；Dashboard 构建需要 Node.js 22.13+
 - 测试框架：Python `unittest`
-- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，114 项测试通过；`dashboard/` 生产构建通过
+- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，123 项测试通过；`dashboard/` 生产构建通过
 - 版本控制：Git 已纳入 TASK-001 完成流程
 - 远端镜像：GitHub `bh8fje/project-atlas` 与群晖 `project-atlas.git`
 - 发布规则：所有发布提交必须双推送并分别验证
@@ -58,5 +60,5 @@ TASK-017 COMPLETED。
 
 ## 下一步
 
-- 开始 TASK-018 Command Center。
-- 不提前实现 TASK-019 Multi Project Intelligence。
+- 开始 TASK-019 Multi Project Intelligence。
+- 不提前实现 TASK-020 Autonomous Project Agent。

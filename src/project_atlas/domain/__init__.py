@@ -3,6 +3,7 @@
 from .asset import AssetRelationship, ProjectArtifact
 from .ai_context import AIContext
 from .assistant import ProjectAssistantAnswer
+from .command import CommandDefinition, CommandEffect, CommandRequest, CommandResult, CommandStatus
 from .enums import (
     ArtifactType,
     ChangeType,
@@ -31,6 +32,11 @@ __all__ = [
     "ArtifactType",
     "AssetRelationship",
     "ChangeType",
+    "CommandDefinition",
+    "CommandEffect",
+    "CommandRequest",
+    "CommandResult",
+    "CommandStatus",
     "HistoryEventType",
     "KnowledgeRecord",
     "KnowledgeRecordType",

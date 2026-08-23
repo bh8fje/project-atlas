@@ -32,6 +32,8 @@ TASK-016 在 `dashboard/` 建立独立的 Sites/Vinext 本地界面。Dashboard 
 
 TASK-017 在同一界面层增加标准 Web App Manifest、移动 Viewport、安全区域和触控导航。它不建立公网连接、后台同步或原生应用。
 
+TASK-018 在 `src/project_atlas/application/` 建立进程内 `CommandCenter`。命令必须显式注册，副作用必须声明，变更命令必须由请求明确确认；服务不包含 Shell 或远程执行器。
+
 仓库目前没有具体模型适配器、Git 分析、移动访问、控制入口、API 或其他后续业务能力。
 
 ## 设计约束
@@ -52,6 +54,7 @@ TASK-017 在同一界面层增加标准 Web App Manifest、移动 Viewport、安
 - `src/project_atlas/knowledge/`：构建显式项目关系图，并在调用者指定的 SQLite 文件中保存版本化知识记录；不自动采集或推断关系。
 - `src/project_atlas/intelligence/`：准备受控 AI 上下文，并通过调用者注入的 Provider 执行结构化分析；不内置凭据或端点。
 - `dashboard/`：本地只读界面与独立前端构建；不直接访问 Python Core、存储或外部服务。
+- `src/project_atlas/application/`：协调显式用户命令与副作用边界；不拥有 Domain 数据或隐式注册执行器。
 - 未来基础设施或应用层只能依赖 Domain 层；Domain 层不得反向依赖它们。
 - 只有获得具体 Task 授权后，才可增加发现、持久化、分析或界面模块。
 
@@ -71,3 +74,4 @@ Provider-neutral 项目理解见 [ADR-0013](decisions/ADR-0013-provider-neutral-
 只读 AI Project Assistant 见 [ADR-0014](decisions/ADR-0014-read-only-ai-project-assistant.md)。
 本地只读 Dashboard 见 [ADR-0015](decisions/ADR-0015-local-dashboard.md)。
 移动端本地 Web 访问见 [ADR-0016](decisions/ADR-0016-mobile-local-web-access.md)。
+显式 Command Center 见 [ADR-0017](decisions/ADR-0017-explicit-command-center.md)。
