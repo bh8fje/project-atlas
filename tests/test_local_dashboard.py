@@ -17,13 +17,19 @@ class LocalDashboardTests(unittest.TestCase):
 
     def test_dashboard_covers_status_history_and_relationships(self) -> None:
         page = (DASHBOARD / "app" / "page.tsx").read_text()
+        translations = (DASHBOARD / "app" / "i18n.ts").read_text()
         for label in ("Project health", "Project history", "Knowledge map"):
-            self.assertIn(label, page)
+            self.assertIn(label, translations)
+        for section_id in ('id="health"', 'id="history"', 'id="relationships"'):
+            self.assertIn(section_id, page)
 
     def test_dashboard_declares_local_read_only_boundary(self) -> None:
         page = (DASHBOARD / "app" / "page.tsx").read_text()
-        self.assertIn("Local only", page)
-        self.assertIn("Read only", page)
+        translations = (DASHBOARD / "app" / "i18n.ts").read_text()
+        self.assertIn("Local only", translations)
+        self.assertIn("Read only", translations)
+        self.assertIn("t.localOnly", page)
+        self.assertIn("t.readOnly", page)
         self.assertNotIn("fetch(", page)
         self.assertNotIn("https://", page)
 

@@ -22,7 +22,8 @@ class MobileAccessTests(unittest.TestCase):
         page = (DASHBOARD / "app" / "page.tsx").read_text()
         for target in ("#overview", "#history", "#relationships", "#health"):
             self.assertIn(f'href="{target}"', page)
-        self.assertIn('aria-label="Mobile navigation"', page)
+        self.assertIn('className="mobile-nav"', page)
+        self.assertIn("aria-label={t.mobileNavigation}", page)
 
     def test_mobile_layout_accounts_for_safe_area_and_touch_targets(self) -> None:
         styles = (DASHBOARD / "app" / "globals.css").read_text()

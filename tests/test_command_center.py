@@ -33,9 +33,12 @@ class CommandContractTests(unittest.TestCase):
 
 class CommandCenterTests(unittest.TestCase):
     def test_dashboard_exposes_non_executing_command_center_summary(self) -> None:
-        page = (Path(__file__).resolve().parents[1] / "dashboard" / "app" / "page.tsx").read_text()
+        app = Path(__file__).resolve().parents[1] / "dashboard" / "app"
+        page = (app / "page.tsx").read_text()
+        translations = (app / "i18n.ts").read_text()
         self.assertIn('id="command-center"', page)
-        self.assertIn("No handlers registered", page)
+        self.assertIn("t.noHandlers", page)
+        self.assertIn("No handlers registered", translations)
 
     def test_executes_registered_read_only_command(self) -> None:
         center = CommandCenter()

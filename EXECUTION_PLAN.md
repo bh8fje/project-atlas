@@ -1,6 +1,6 @@
 # Project Atlas Execution Plan
 
-- Version: 1.0
+- Version: 1.1
 - Status: COMPLETED
 
 ## 1. Project Mission
@@ -270,6 +270,25 @@ AI 主动：
 - 提醒风险
 - 提供建议
 
+### Phase 7 - Global Experience
+
+目标：让本地 Dashboard 面向不同语言环境保持一致体验。
+
+状态：COMPLETED
+
+#### TASK-021 Internationalization Language Preferences
+
+状态：COMPLETED
+
+支持：
+
+- 中文
+- 英语
+- 俄语
+- 韩语
+- 首次访问跟随系统语言
+- 用户显式选择并保存在本机浏览器
+
 ## 4. Task Execution Rules
 
 所有 Task 必须遵循以下规则。
@@ -330,9 +349,9 @@ AI 不能：
 
 ## 7. Current Execution State
 
-- Current Phase: Phase 6 - Advanced Intelligence — COMPLETED
-- Completed: TASK-001 至 TASK-020
-- Current: 无（Execution Plan 1.0 已完成）
+- Current Phase: Phase 7 - Global Experience — COMPLETED
+- Completed: TASK-001 至 TASK-021
+- Current: 无（Execution Plan 1.1 已完成）
 - Next: 无；等待新的明确 Task
 
 ## 8. Final Vision
