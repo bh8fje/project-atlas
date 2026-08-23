@@ -1,6 +1,7 @@
 """Public domain contracts for Project Atlas."""
 
 from .asset import AssetRelationship, ProjectArtifact
+from .ai_context import AIContext
 from .enums import (
     ArtifactType,
     ChangeType,
@@ -24,6 +25,7 @@ from .task import Task
 from .timeline import ProjectTimeline
 
 __all__ = [
+    "AIContext",
     "ArtifactType",
     "AssetRelationship",
     "ChangeType",
