@@ -2,11 +2,11 @@
 
 ## 当前阶段
 
-Phase 1 - Project Discovery（COMPLETED）。
+Phase 2 - Project Memory（IN PROGRESS）。
 
-TASK-006 COMPLETED。
+TASK-007 COMPLETED。
 
-当前版本：`v0.6.0`。
+当前版本：`v0.7.0`。
 
 ## 当前能力
 
@@ -21,14 +21,16 @@ TASK-006 COMPLETED。
 - 已提供 `ProjectStructure`、包含关系、技术标签与资产类型计数。
 - 已提供基于规范化本地路径的稳定 Project ID。
 - 已提供 `sha256-metadata-v1` 项目结构指纹、校验、序列化与状态匹配。
-- 尚无项目历史、变化分类、Git 分析、内容语义分析、AI、持久化、API 或界面功能。
+- 已提供 `ProjectSnapshot`、`ProjectChange` 与 `ProjectHistoryEvent` 不可变历史领域契约。
+- 已定义 `ChangeType` 与 `HistoryEventType`，并支持校验和 JSON 兼容序列化。
+- 尚无自动变化检测、时间线、Git 分析、内容语义分析、AI、持久化、API 或界面功能。
 
 ## 工程基线
 
 - 状态：已建立目录、配置、文档与开发规范基线
 - 运行环境：Python 3.11+，无第三方运行时依赖
 - 测试框架：Python `unittest`
-- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，47 项测试通过
+- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，56 项测试通过
 - 版本控制：Git 已纳入 TASK-001 完成流程
 - 远端镜像：GitHub `bh8fje/project-atlas` 与群晖 `project-atlas.git`
 - 发布规则：所有发布提交必须双推送并分别验证
@@ -37,5 +39,5 @@ TASK-006 COMPLETED。
 
 ## 下一步
 
-- 开始 TASK-007 Project History Model。
-- 不提前实现 TASK-008 的变化检测引擎。
+- 开始 TASK-008 Change Detection Engine。
+- 不提前实现 TASK-009 Project Timeline。

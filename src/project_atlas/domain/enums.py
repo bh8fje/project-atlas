@@ -41,3 +41,20 @@ class RelationshipType(str, Enum):
     DEPENDS_ON = "DEPENDS_ON"
     GENERATED_FROM = "GENERATED_FROM"
     UNKNOWN = "UNKNOWN"
+
+
+class ChangeType(str, Enum):
+    """Classification of a recorded artifact-level change."""
+
+    ADDED = "ADDED"
+    REMOVED = "REMOVED"
+    MODIFIED = "MODIFIED"
+    UNKNOWN = "UNKNOWN"
+
+
+class HistoryEventType(str, Enum):
+    """Classification of a project history event."""
+
+    SNAPSHOT_CAPTURED = "SNAPSHOT_CAPTURED"
+    CHANGES_RECORDED = "CHANGES_RECORDED"
+    UNKNOWN = "UNKNOWN"

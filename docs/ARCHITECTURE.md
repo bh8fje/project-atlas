@@ -10,7 +10,9 @@ TASK-005 在 `src/project_atlas/analysis/` 建立受限的项目结构分析层�
 
 TASK-006 在 `src/project_atlas/fingerprint/` 建立稳定本地项目身份和版本化元数据指纹。身份由规范化项目路径确定；指纹只使用结构元数据，不读取文件内容。
 
-仓库目前没有项目历史、变化分类、Git 分析、内容语义分析、AI 分析、Dashboard、数据库、API 或其他后续业务能力。
+TASK-007 在 Domain 层建立 `ProjectSnapshot`、`ProjectChange` 和 `ProjectHistoryEvent`。这些对象只表达历史事实与引用，不负责生成、比较、排序或保存历史。
+
+仓库目前没有自动变化检测、时间线、Git 分析、内容语义分析、AI 分析、Dashboard、数据库、API 或其他后续业务能力。
 
 ## 设计约束
 
@@ -34,3 +36,4 @@ TASK-006 在 `src/project_atlas/fingerprint/` 建立稳定本地项目身份和�
 本地发现边界见 [ADR-0003](decisions/ADR-0003-local-project-discovery.md)。
 结构分析边界见 [ADR-0004](decisions/ADR-0004-project-structure-analysis.md)。
 项目指纹决策见 [ADR-0005](decisions/ADR-0005-project-fingerprint.md)。
+项目历史模型见 [ADR-0006](decisions/ADR-0006-project-history-model.md)。
