@@ -5,6 +5,7 @@ from .enums import ArtifactType, ProjectStatus, RelationshipType, TaskStatus
 from .project import Project
 from .repository import Repository
 from .snapshot import RepositorySnapshot
+from .structure import ProjectStructure
 from .task import Task
 
 __all__ = [
@@ -13,6 +14,7 @@ __all__ = [
     "Project",
     "ProjectArtifact",
     "ProjectStatus",
+    "ProjectStructure",
     "RelationshipType",
     "Repository",
     "RepositorySnapshot",
