@@ -40,7 +40,9 @@ TASK-020 在 Intelligence 层建立显式触发的 `AutonomousProjectAgent` 观�
 
 TASK-021 在 Dashboard 客户端层建立类型化中文、英语、俄语、韩语翻译字典。未设置偏好时跟随系统语言；显式偏好只保存在浏览器本地，不进入 Core 或远端服务。
 
-TASK-022 规定 Dashboard 等用户界面以浅显中文为文案源，其他语言按中文含义翻译；工程术语保留在开发与架构文档中。
+TASK-022 规定 Dashboard 等用户界面以清晰中文为文案源，其他语言按中文含义翻译；工程术语保留在开发与架构文档中。
+
+TASK-023 将该标准进一步收敛为专业、清晰且不过度口语化，并将 Dashboard 建设阶段建模为本地静态的可展开详情；决策见 `docs/decisions/ADR-0022-browsable-development-phases.md`。
 
 仓库目前没有具体模型适配器、Git commit 分析、公网服务、后台 Agent 调度、自动操作或 API。
 

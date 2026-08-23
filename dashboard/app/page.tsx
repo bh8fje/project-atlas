@@ -11,8 +11,8 @@ import {
   translations,
 } from './i18n';
 
-const milestoneVersions = ['v0.21.0', 'v0.19.0', 'v0.15.0', 'v0.14.0'];
-const metricValues = ['22', '148', '21', '0'];
+const milestoneVersions = ['v0.23.0', 'v0.22.0', 'v0.21.0', 'v0.19.0'];
+const metricValues = ['23', '151', '22', '0'];
 
 const Icon = ({ children }: { children: React.ReactNode }) => (
   <span className="nav-icon" aria-hidden="true">{children}</span>
@@ -26,6 +26,7 @@ function detectSystemLanguage(): Language {
 export default function Home() {
   const [preference, setPreference] = useState<LanguagePreference>('system');
   const [systemLanguage, setSystemLanguage] = useState<Language>('en');
+  const [expandedPhase, setExpandedPhase] = useState<number | null>(0);
   const language = preference === 'system' ? systemLanguage : preference;
   const t = translations[language];
 
@@ -71,7 +72,7 @@ export default function Home() {
           <span className="pulse" />
           <div><strong>{t.localOnly}</strong><small>{t.dataStays}</small></div>
         </div>
-        <p className="sidebar-foot">Project Atlas · v0.22.0</p>
+        <p className="sidebar-foot">Project Atlas · v0.23.0</p>
       </aside>
 
       <main className="content">
@@ -98,15 +99,15 @@ export default function Home() {
           <div className="hero-orbit" aria-label={t.graphSummary}>
             <span className="orbit orbit-one" /><span className="orbit orbit-two" />
             <span className="node node-core">Atlas</span>
-            <span className="node node-a">148<small>{t.tests}</small></span>
-            <span className="node node-b">22<small>{t.tasks}</small></span>
-            <span className="node node-c">21<small>{t.decisionsShort}</small></span>
+            <span className="node node-a">151<small>{t.tests}</small></span>
+            <span className="node node-b">23<small>{t.tasks}</small></span>
+            <span className="node node-c">22<small>{t.decisionsShort}</small></span>
           </div>
         </section>
 
         <section className="mobile-glance" aria-label={t.mobileSummary}>
           <div><span className="pulse" /><strong>{t.systemsSteady}</strong></div>
-          <span>148 {t.tests} · v0.22.0</span>
+          <span>151 {t.tests} · v0.23.0</span>
         </section>
 
         <section className="metrics" aria-label={t.metricsLabel}>
@@ -117,10 +118,27 @@ export default function Home() {
           <section className="panel phase-panel">
             <div className="panel-heading"><div><p className="eyebrow">{t.executionPlan}</p><h3>{t.architectureEvolution}</h3></div><span>{t.phasesComplete}</span></div>
             <div className="phase-list">
-              {t.phaseNames.map((name, index) => (
-                <div className="phase-row" key={name}>
-                  <span className="phase-index">0{index}</span>
-                  <div className="phase-detail"><div><strong>{name}</strong><small>{t.complete}</small></div><div className="progress"><i style={{ width: '100%' }} /></div></div>
+              {t.phases.map((phase, index) => (
+                <div className={`phase-card${expandedPhase === index ? ' expanded' : ''}`} key={phase.name}>
+                  <button
+                    className="phase-row"
+                    type="button"
+                    aria-expanded={expandedPhase === index}
+                    aria-controls={`phase-details-${index}`}
+                    aria-label={`${expandedPhase === index ? t.hidePhaseDetails : t.showPhaseDetails}: ${phase.name}`}
+                    onClick={() => setExpandedPhase(expandedPhase === index ? null : index)}
+                  >
+                    <span className="phase-index">0{index}</span>
+                    <span className="phase-detail"><span><strong>{phase.name}</strong><small>{t.complete}</small></span><span className="progress"><i style={{ width: '100%' }} /></span></span>
+                    <span className="phase-toggle" aria-hidden="true">{expandedPhase === index ? '−' : '+'}</span>
+                  </button>
+                  {expandedPhase === index && (
+                    <div className="phase-expanded" id={`phase-details-${index}`} role="region" aria-label={phase.name}>
+                      <p>{phase.summary}</p>
+                      <strong>{t.implementedFeatures}</strong>
+                      <ul>{phase.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -131,8 +149,8 @@ export default function Home() {
             <div className="health-ring"><div><strong>100%</strong><small>{t.testsPassing}</small></div></div>
             <div className="health-grid">
               <div><span>{t.workingTree}</span><strong>{t.clean}</strong></div>
-              <div><span>{t.currentVersion}</span><strong>v0.22.0</strong></div>
-              <div><span>{t.latestTask}</span><strong>TASK-022</strong></div>
+              <div><span>{t.currentVersion}</span><strong>v0.23.0</strong></div>
+              <div><span>{t.latestTask}</span><strong>TASK-023</strong></div>
               <div><span>{t.mode}</span><strong>{t.readOnly}</strong></div>
             </div>
           </section>

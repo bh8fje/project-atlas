@@ -58,8 +58,29 @@ class DashboardInternationalizationTests(unittest.TestCase):
     def test_repository_defines_plain_language_rules(self) -> None:
         rules = (ROOT / "docs" / "PRODUCT_LANGUAGE.md").read_text()
         agents = (ROOT / "AGENTS.md").read_text()
-        self.assertIn("先写清楚、自然的中文", rules)
+        self.assertIn("先写专业、清晰的中文", rules)
         self.assertIn("docs/PRODUCT_LANGUAGE.md", agents)
+
+    def test_phase_names_use_professional_clear_language(self) -> None:
+        chinese = self.i18n.split("zh: {", 1)[1].split("en: {", 1)[0]
+        for name in ("基础架构", "项目发现", "项目历史", "AI 项目分析", "多语言支持"):
+            with self.subTest(name=name):
+                self.assertIn(name, chinese)
+        for casual_phrase in ("打好基础", "找到项目", "AI 帮助", "更多智能功能"):
+            with self.subTest(casual_phrase=casual_phrase):
+                self.assertNotIn(casual_phrase, chinese)
+
+    def test_each_development_phase_has_visible_feature_details(self) -> None:
+        self.assertEqual(self.i18n.count("features: ["), 32)
+        self.assertIn("已实现功能", self.i18n)
+        self.assertIn("phase.features.map", self.page)
+        self.assertIn("phase.summary", self.page)
+
+    def test_development_phases_are_keyboard_accessible(self) -> None:
+        self.assertIn('className="phase-row"', self.page)
+        self.assertIn('type="button"', self.page)
+        self.assertIn("aria-expanded", self.page)
+        self.assertIn("aria-controls", self.page)
 
 
 if __name__ == "__main__":
