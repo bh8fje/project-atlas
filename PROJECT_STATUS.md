@@ -15,6 +15,8 @@
 - 测试框架：Python `unittest`
 - 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，2 项测试通过
 - 版本控制：Git 已纳入 TASK-001 完成流程
+- 远端镜像：GitHub `bh8fje/project-atlas` 与群晖 `project-atlas.git`
+- 发布规则：所有发布提交必须双推送并分别验证
 
 ## 下一步
 
