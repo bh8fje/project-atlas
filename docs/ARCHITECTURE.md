@@ -50,6 +50,8 @@ TASK-025 在 `src/project_atlas/application/workspaces.py` 与 `src/project_atla
 
 v0.25.1 保留结构分析的 10,000 项保护上限，并在工作区协调层将超过上限的单个项目记录为受限。受限项目不生成完整结构指纹，但不会阻断同一目录中其他项目的识别。
 
+TASK-026 将工作区检查结果投影为可点击的本机项目详情。工作区状态新增资产类型计数，Dashboard 在内存中选择项目并展开详情；点击行为不触发新的扫描、存储、AI 调用或文件读取。决策见 `docs/decisions/ADR-0025-local-project-detail-view.md`。
+
 仓库目前没有具体模型适配器、Git commit 分析、公网服务、后台 Agent 调度、自动修改或外部 API。本机目录服务不监听局域网或公网，也不是常驻系统服务。
 
 ## 设计约束
@@ -99,3 +101,4 @@ Provider-neutral 项目理解见 [ADR-0013](decisions/ADR-0013-provider-neutral-
 专业产品文案与阶段详情见 [ADR-0022](decisions/ADR-0022-browsable-development-phases.md)。
 Dashboard 信息含义见 [ADR-0023](decisions/ADR-0023-dashboard-information-semantics.md)。
 本机项目目录管理见 [ADR-0024](decisions/ADR-0024-local-workspace-monitoring.md)。
+本机项目详情见 [ADR-0025](decisions/ADR-0025-local-project-detail-view.md)。

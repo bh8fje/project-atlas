@@ -13,6 +13,7 @@ type ProjectRow = {
   path: string;
   artifact_count: number | null;
   technologies: string[];
+  artifact_type_counts?: Record<string, number>;
   analysis_status: 'complete' | 'limited';
   change_status: 'added' | 'changed' | 'unchanged' | 'recorded';
 };
@@ -51,6 +52,7 @@ export default function WorkspaceManager({ copy, language }: { copy: WorkspaceTr
   const [connection, setConnection] = useState<'connecting' | 'ready' | 'unavailable'>('connecting');
   const [busy, setBusy] = useState<string | null>(null);
   const [message, setMessage] = useState('');
+  const [selectedProject, setSelectedProject] = useState<{ workspaceId: string; projectId: string } | null>(null);
 
   const load = useCallback(async () => {
     try {
@@ -130,6 +132,17 @@ export default function WorkspaceManager({ copy, language }: { copy: WorkspaceTr
     ? new Intl.DateTimeFormat(language, { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(value))
     : copy.neverScanned;
 
+  const selection = selectedProject
+    ? workspaces.flatMap((workspace) => workspace.projects
+      .filter((project) => project.id === selectedProject.projectId && workspace.id === selectedProject.workspaceId)
+      .map((project) => ({ workspace, project }))).at(0)
+    : undefined;
+
+  const openProject = (workspace: WorkspaceRow, project: ProjectRow) => {
+    setSelectedProject({ workspaceId: workspace.id, projectId: project.id });
+    window.requestAnimationFrame(() => document.getElementById('project-detail')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  };
+
   return (
     <section id="workspaces" className="panel workspace-panel">
       <div className="panel-heading workspace-heading">
@@ -165,7 +178,7 @@ export default function WorkspaceManager({ copy, language }: { copy: WorkspaceTr
               {workspace.projects.length === 0 && <p className="no-projects">{copy.noProjects}</p>}
               {workspace.projects.map((project) => (
                 <div className="project-row" key={project.id}>
-                  <div><strong>{project.name}</strong><small>{project.path}</small></div>
+                  <button className="project-open" type="button" onClick={() => openProject(workspace, project)} aria-label={`${copy.openProject}: ${project.name}`}><strong>{project.name}</strong><small>{project.path}</small><span>{copy.openProject} →</span></button>
                   <div className="project-meta"><span className={`change-status ${project.change_status}`}>{copy.changeStatus[project.change_status]}</span>{project.analysis_status === 'limited' ? <span className="analysis-limited">{copy.analysisLimited}</span> : <span>{project.technologies.join(' · ') || copy.unknownTechnology}</span>}<small>{project.artifact_count === null ? copy.assetCountUnavailable : `${project.artifact_count} ${copy.items}`}</small></div>
                 </div>
               ))}
@@ -173,6 +186,29 @@ export default function WorkspaceManager({ copy, language }: { copy: WorkspaceTr
           </article>
         ))}
       </div>
+      {selection && (
+        <article id="project-detail" className="project-detail" aria-label={`${copy.projectDetail}: ${selection.project.name}`}>
+          <div className="project-detail-head">
+            <div><p className="eyebrow">Project Atlas</p><h4>{selection.project.name}</h4><p>{copy.projectDetail}</p></div>
+            <button type="button" onClick={() => setSelectedProject(null)} aria-label={copy.closeDetail}>×</button>
+          </div>
+          <dl className="project-facts">
+            <div><dt>{copy.projectPath}</dt><dd>{selection.project.path}</dd></div>
+            <div><dt>{copy.lastChecked}</dt><dd>{formatTime(selection.workspace.last_scanned_at)}</dd></div>
+            <div><dt>{copy.checkResult}</dt><dd>{copy.changeStatus[selection.project.change_status]}</dd></div>
+            <div><dt>{copy.structureCheck}</dt><dd>{selection.project.analysis_status === 'limited' ? copy.limitedCheck : copy.completeCheck}</dd></div>
+          </dl>
+          <div className="project-detail-section">
+            <h5>{copy.technologyStack}</h5>
+            <div className="technology-tags">{selection.project.technologies.length > 0 ? selection.project.technologies.map((technology) => <span key={technology}>{technology}</span>) : <p>{copy.unknownTechnology}</p>}</div>
+          </div>
+          <div className="project-detail-section">
+            <h5>{copy.assetOverview}</h5>
+            {selection.project.analysis_status === 'limited' ? <p className="limited-explanation">{copy.limitedDetail}</p> : <div className="artifact-counts">{Object.entries(copy.artifactTypes ?? {}).map(([type, label]) => <div key={type}><strong>{selection.project.artifact_type_counts?.[type] ?? 0}</strong><span>{label}</span></div>)}</div>}
+          </div>
+          <p className="project-detail-boundary">{copy.detailBoundary}</p>
+        </article>
+      )}
       <p className="workspace-boundary">{copy.localBoundary}</p>
     </section>
   );

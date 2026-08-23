@@ -82,6 +82,14 @@ class LocalDashboardTests(unittest.TestCase):
             self.assertIn(f"last_summary.{field}", manager)
         self.assertIn("change_status", manager)
 
+    def test_discovered_projects_open_a_local_project_detail_view(self) -> None:
+        manager = (DASHBOARD / "app" / "workspace-manager.tsx").read_text()
+        translations = (DASHBOARD / "app" / "i18n.ts").read_text()
+        self.assertIn('className="project-open"', manager)
+        self.assertIn('id="project-detail"', manager)
+        self.assertIn("artifact_type_counts", manager)
+        self.assertIn("此处展示最近一次本机检查结果，不是 AI 分析", translations)
+
 
 if __name__ == "__main__":
     unittest.main()

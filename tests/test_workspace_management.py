@@ -126,6 +126,7 @@ class WorkspaceScanServiceTests(unittest.TestCase):
         self.assertEqual(report.to_dict()["summary"]["project_count"], 1)
         self.assertEqual(report.projects[0]["name"], "sample")
         self.assertEqual(report.projects[0]["change_status"], "added")
+        self.assertEqual(report.projects[0]["artifact_type_counts"]["configuration"], 1)
         self.assertEqual(persisted[0]["change_status"], "added")
         self.assertEqual(
             summary,
@@ -157,6 +158,7 @@ class WorkspaceScanServiceTests(unittest.TestCase):
         self.assertEqual(report.to_dict()["summary"]["limited"], 1)
         self.assertEqual(report.projects[0]["analysis_status"], "limited")
         self.assertIsNone(report.projects[0]["artifact_count"])
+        self.assertEqual(report.projects[0]["artifact_type_counts"], {})
         self.assertEqual(len(report.limited_project_ids), 1)
 
     def test_reports_changed_and_removed_projects(self) -> None:

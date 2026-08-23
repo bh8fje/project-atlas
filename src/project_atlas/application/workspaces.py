@@ -263,6 +263,7 @@ class WorkspaceScanService:
                         "path": project.path,
                         "artifact_count": None,
                         "technologies": [],
+                        "artifact_type_counts": {},
                         "fingerprint": None,
                         "analysis_status": "limited",
                     }
@@ -276,6 +277,10 @@ class WorkspaceScanService:
                         "path": project.path,
                         "artifact_count": structure.artifact_count,
                         "technologies": list(structure.technologies),
+                        "artifact_type_counts": {
+                            key.lower(): value
+                            for key, value in structure.artifact_type_counts().items()
+                        },
                         "fingerprint": fingerprint.digest,
                         "analysis_status": "complete",
                     }

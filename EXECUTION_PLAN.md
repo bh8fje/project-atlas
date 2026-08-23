@@ -1,6 +1,6 @@
 # Project Atlas Execution Plan
 
-- Version: 1.5
+- Version: 1.6
 - Status: COMPLETED
 
 ## 1. Project Mission
@@ -345,6 +345,29 @@ AI 主动：
 - 不建立外部网络连接、常驻系统服务或持续文件监听
 - 移除登记不删除用户项目文件
 
+### Phase 9 - Project Inspection
+
+目标：让用户从项目识别结果进入单项目详情。
+
+状态：COMPLETED
+
+#### TASK-026 Local Project Detail View
+
+状态：COMPLETED
+
+能力：
+
+- 点击已识别项目打开 Project Atlas 项目详情
+- 显示最近检查时间、变化状态和结构检查状态
+- 显示技术栈及资产类型数量
+- 为受限项目显示明确说明，不展示不完整统计
+
+边界：
+
+- 点击不会触发新扫描、AI 调用或文件内容读取
+- 不展示项目目的、风险、历史或关系推断
+- 不修改用户项目或建立新数据库
+
 ## 4. Task Execution Rules
 
 所有 Task 必须遵循以下规则。
@@ -405,9 +428,9 @@ AI 不能：
 
 ## 7. Current Execution State
 
-- Current Phase: Phase 8 - Local Operations — COMPLETED
-- Completed: TASK-001 至 TASK-025
-- Current: 无（Execution Plan 1.5 已完成）
+- Current Phase: Phase 9 - Project Inspection — COMPLETED
+- Completed: TASK-001 至 TASK-026
+- Current: 无（Execution Plan 1.6 已完成）
 - Next: 无；等待新的明确 Task
 
 ## 8. Final Vision

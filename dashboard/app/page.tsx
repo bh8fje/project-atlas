@@ -12,7 +12,7 @@ import {
 } from './i18n';
 import WorkspaceManager from './workspace-manager';
 
-const milestoneVersions = ['v0.25.1', 'v0.25.0', 'v0.24.0', 'v0.23.0'];
+const milestoneVersions = ['v0.26.0', 'v0.25.1', 'v0.25.0', 'v0.24.0'];
 
 const Icon = ({ children }: { children: React.ReactNode }) => (
   <span className="nav-icon" aria-hidden="true">{children}</span>
@@ -29,7 +29,7 @@ export default function Home() {
   const [expandedPhase, setExpandedPhase] = useState<number | null>(0);
   const language = preference === 'system' ? systemLanguage : preference;
   const t = translations[language];
-  const metricValues = ['25', '169', '24', t.localSource];
+  const metricValues = ['26', '170', '25', t.localSource];
 
   useEffect(() => {
     const updateSystemLanguage = () => setSystemLanguage(detectSystemLanguage());
@@ -74,7 +74,7 @@ export default function Home() {
           <span className="pulse" />
           <div><strong>{t.localOnly}</strong><small>{t.dataStays}</small></div>
         </div>
-        <p className="sidebar-foot">Project Atlas · v0.25.1</p>
+        <p className="sidebar-foot">Project Atlas · v0.26.0</p>
       </aside>
 
       <main className="content">
@@ -101,15 +101,15 @@ export default function Home() {
           <div className="hero-orbit" aria-label={t.graphSummary}>
             <span className="orbit orbit-one" /><span className="orbit orbit-two" />
             <span className="node node-core">Atlas</span>
-            <span className="node node-a">169<small>{t.tests}</small></span>
-            <span className="node node-b">25<small>{t.tasks}</small></span>
-            <span className="node node-c">24<small>{t.decisionsShort}</small></span>
+            <span className="node node-a">170<small>{t.tests}</small></span>
+            <span className="node node-b">26<small>{t.tasks}</small></span>
+            <span className="node node-c">25<small>{t.decisionsShort}</small></span>
           </div>
         </section>
 
         <section className="mobile-glance" aria-label={t.mobileSummary}>
           <div><span className="pulse" /><strong>{t.releaseVerifiedShort}</strong></div>
-          <span>169 {t.tests} · v0.25.1</span>
+          <span>170 {t.tests} · v0.26.0</span>
         </section>
 
         <section className="metrics" aria-label={t.metricsLabel}>
@@ -150,11 +150,11 @@ export default function Home() {
 
           <section id="health" className="panel health-panel">
             <div className="panel-heading"><div><p className="eyebrow">{t.releaseStatus}</p><h3>{t.releaseVerified}</h3></div><span className="verified-badge">✓</span></div>
-            <div className="release-summary"><strong>169</strong><span>{t.testsPassing}</span><p>{t.releaseRecordNote}</p></div>
+            <div className="release-summary"><strong>170</strong><span>{t.testsPassing}</span><p>{t.releaseRecordNote}</p></div>
             <div className="health-grid">
               <div><span>{t.workingTree}</span><strong>{t.clean}</strong></div>
-              <div><span>{t.currentVersion}</span><strong>v0.25.1</strong></div>
-              <div><span>{t.latestTask}</span><strong>TASK-025</strong></div>
+              <div><span>{t.currentVersion}</span><strong>v0.26.0</strong></div>
+              <div><span>{t.latestTask}</span><strong>TASK-026</strong></div>
               <div><span>{t.mode}</span><strong>{t.readOnly}</strong></div>
             </div>
           </section>
