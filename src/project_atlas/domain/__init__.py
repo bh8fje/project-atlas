@@ -5,11 +5,13 @@ from .enums import (
     ArtifactType,
     ChangeType,
     HistoryEventType,
+    ProjectRelationshipType,
     ProjectStatus,
     RelationshipType,
     TaskStatus,
 )
 from .fingerprint import ProjectFingerprint
+from .graph import ProjectRelationship, ProjectRelationshipGraph
 from .history import ProjectChange, ProjectHistoryEvent, ProjectSnapshot
 from .project import Project
 from .repository import Repository
@@ -28,6 +30,9 @@ __all__ = [
     "ProjectChange",
     "ProjectFingerprint",
     "ProjectHistoryEvent",
+    "ProjectRelationship",
+    "ProjectRelationshipGraph",
+    "ProjectRelationshipType",
     "ProjectSnapshot",
     "ProjectStatus",
     "ProjectStructure",

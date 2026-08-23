@@ -58,3 +58,12 @@ class HistoryEventType(str, Enum):
     SNAPSHOT_CAPTURED = "SNAPSHOT_CAPTURED"
     CHANGES_RECORDED = "CHANGES_RECORDED"
     UNKNOWN = "UNKNOWN"
+
+
+class ProjectRelationshipType(str, Enum):
+    """Semantic relationship between two software projects."""
+
+    DEPENDS_ON = "DEPENDS_ON"
+    GENERATED_FROM = "GENERATED_FROM"
+    RELATED_TO = "RELATED_TO"
+    UNKNOWN = "UNKNOWN"

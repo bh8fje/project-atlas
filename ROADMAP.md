@@ -20,11 +20,16 @@
 - TASK-008 Change Detection Engine — COMPLETED
 - TASK-009 Project Timeline — COMPLETED
 
+## Phase 3 - Knowledge Map（IN PROGRESS）
+
+- TASK-010 Project Relationship Graph — COMPLETED
+- TASK-011 Knowledge Storage — PLANNED
+- TASK-012 Knowledge Query Engine — PLANNED
+
 ## 后续阶段（PLANNED）
 
-- Phase 3 - Knowledge Map：TASK-010 至 TASK-012
 - Phase 4 - AI Intelligence：TASK-013 至 TASK-015
 - Phase 5 - Interface：TASK-016 至 TASK-018
 - Phase 6 - Advanced Intelligence：TASK-019 至 TASK-020
 
-下一任务为 TASK-010 Project Relationship Graph；不提前实现 TASK-011 存储。
+下一任务为 TASK-011 Knowledge Storage；不提前实现 TASK-012 查询引擎。

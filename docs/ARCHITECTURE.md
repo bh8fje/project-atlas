@@ -16,7 +16,9 @@ TASK-008 在 `src/project_atlas/history/` 建立纯内存变化检测层。该�
 
 TASK-009 在 Domain 与 History 层建立 `ProjectTimeline` 和 `ProjectTimelineBuilder`。构建器校验项目归属及历史引用，并按时间与 Event ID 生成确定性事件顺序。
 
-仓库目前没有跨项目关系图、Git 分析、内容语义分析、AI 分析、Dashboard、数据库、API 或其他后续业务能力。
+TASK-010 在 Domain 与 `src/project_atlas/knowledge/` 建立显式项目关系和确定性内存图。项目图与项目内部的资产关系保持独立，不自动推断边。
+
+仓库目前没有知识持久化、Git 分析、内容语义分析、AI 分析、Dashboard、API 或其他后续业务能力。
 
 ## 设计约束
 
@@ -33,6 +35,7 @@ TASK-009 在 Domain 与 History 层建立 `ProjectTimeline` 和 `ProjectTimeline
 - `src/project_atlas/analysis/`：受深度和资产数量约束的结构与技术标记分析，不读取文件内容。
 - `src/project_atlas/fingerprint/`：生成稳定本地身份和版本化元数据摘要，不保存历史或判断变化类型。
 - `src/project_atlas/history/`：比较显式提供的结构并生成变化事实，不采集、持久化或展示历史。
+- `src/project_atlas/knowledge/`：构建显式项目关系图；当前不存储、不推断关系。
 - 未来基础设施或应用层只能依赖 Domain 层；Domain 层不得反向依赖它们。
 - 只有获得具体 Task 授权后，才可增加发现、持久化、分析或界面模块。
 
@@ -44,3 +47,4 @@ TASK-009 在 Domain 与 History 层建立 `ProjectTimeline` 和 `ProjectTimeline
 项目历史模型见 [ADR-0006](decisions/ADR-0006-project-history-model.md)。
 结构变化检测见 [ADR-0007](decisions/ADR-0007-structure-change-detection.md)。
 项目时间线见 [ADR-0008](decisions/ADR-0008-project-timeline.md)。
+项目关系图见 [ADR-0009](decisions/ADR-0009-project-relationship-graph.md)。

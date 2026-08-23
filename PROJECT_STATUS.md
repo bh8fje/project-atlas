@@ -2,11 +2,11 @@
 
 ## 当前阶段
 
-Phase 2 - Project Memory（COMPLETED）。
+Phase 3 - Knowledge Map（IN PROGRESS）。
 
-TASK-009 COMPLETED。
+TASK-010 COMPLETED。
 
-当前版本：`v0.9.0`。
+当前版本：`v0.10.0`。
 
 ## 当前能力
 
@@ -26,14 +26,16 @@ TASK-009 COMPLETED。
 - 已提供基于相对路径和资产元数据的确定性变化检测，支持新增、删除和修改。
 - 已支持初始结构检测、稳定 Change ID 与显式 Snapshot 引用。
 - 已提供 `ProjectTimeline` 与 `ProjectTimelineBuilder`，支持历史引用完整性校验和确定性排序。
-- 尚无跨项目关系图、Git 分析、内容语义分析、AI、持久化、API 或界面功能。
+- 已提供 `ProjectRelationship`、`ProjectRelationshipGraph` 与显式图构建器。
+- 已支持项目图入边、出边、引用完整性、确定性排序和序列化。
+- 尚无知识持久化、Git 分析、内容语义分析、AI、API 或界面功能。
 
 ## 工程基线
 
 - 状态：已建立目录、配置、文档与开发规范基线
 - 运行环境：Python 3.11+，无第三方运行时依赖
 - 测试框架：Python `unittest`
-- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，68 项测试通过
+- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，74 项测试通过
 - 版本控制：Git 已纳入 TASK-001 完成流程
 - 远端镜像：GitHub `bh8fje/project-atlas` 与群晖 `project-atlas.git`
 - 发布规则：所有发布提交必须双推送并分别验证
@@ -42,5 +44,5 @@ TASK-009 COMPLETED。
 
 ## 下一步
 
-- 开始 TASK-010 Project Relationship Graph。
-- 不提前实现 TASK-011 Knowledge Storage。
+- 开始 TASK-011 Knowledge Storage。
+- 不提前实现 TASK-012 Knowledge Query Engine。
