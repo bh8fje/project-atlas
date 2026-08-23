@@ -2,11 +2,11 @@
 
 ## 当前阶段
 
-Phase 3 - Knowledge Map（IN PROGRESS）。
+Phase 3 - Knowledge Map（COMPLETED）。
 
-TASK-011 COMPLETED。
+TASK-012 COMPLETED。
 
-当前版本：`v0.11.0`。
+当前版本：`v0.12.0`。
 
 ## 当前能力
 
@@ -30,14 +30,16 @@ TASK-011 COMPLETED。
 - 已支持项目图入边、出边、引用完整性、确定性排序和序列化。
 - 已提供版本化 `KnowledgeRecord` 与显式路径的事务化 SQLite 本地存储。
 - 已支持跨进程读取、精确类型/Project 过滤、冲突保护与显式替换。
-- 尚无知识查询引擎、Git 分析、内容语义分析、AI、API 或界面功能。
+- 已提供 `KnowledgeQuery`、`KnowledgeQueryResult` 与只读 `KnowledgeQueryEngine`。
+- 已支持类型、Project、时间范围、限制条件和本地全部词项匹配。
+- 尚无 AI 上下文、Git 分析、内容语义分析、AI 调用、API 或界面功能。
 
 ## 工程基线
 
 - 状态：已建立目录、配置、文档与开发规范基线
 - 运行环境：Python 3.11+，无第三方运行时依赖
 - 测试框架：Python `unittest`
-- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，82 项测试通过
+- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，88 项测试通过
 - 版本控制：Git 已纳入 TASK-001 完成流程
 - 远端镜像：GitHub `bh8fje/project-atlas` 与群晖 `project-atlas.git`
 - 发布规则：所有发布提交必须双推送并分别验证
@@ -46,5 +48,5 @@ TASK-011 COMPLETED。
 
 ## 下一步
 
-- 开始 TASK-012 Knowledge Query Engine。
-- 不提前实现 TASK-013 AI Context Builder。
+- 开始 TASK-013 AI Context Builder。
+- 不提前实现 TASK-014 AI Project Understanding。

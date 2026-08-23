@@ -20,7 +20,9 @@ TASK-010 在 Domain 与 `src/project_atlas/knowledge/` 建立显式项目关系�
 
 TASK-011 在 Domain 与 Knowledge 层建立版本化 `KnowledgeRecord` 和事务化 SQLite 本地存储。存储路径与覆盖行为必须显式，记录内容使用规范 JSON 信封。
 
-仓库目前没有知识查询引擎、Git 分析、内容语义分析、AI 分析、Dashboard、API 或其他后续业务能力。
+TASK-012 在 Domain 与 Knowledge 层建立结构化查询、只读查询结果和本地关键词匹配。文本查询是确定性词项匹配，不是 AI 语义理解。
+
+仓库目前没有 AI 上下文、Git 分析、内容语义分析、AI 调用、Dashboard、API 或其他后续业务能力。
 
 ## 设计约束
 
@@ -51,3 +53,4 @@ TASK-011 在 Domain 与 Knowledge 层建立版本化 `KnowledgeRecord` 和事务
 项目时间线见 [ADR-0008](decisions/ADR-0008-project-timeline.md)。
 项目关系图见 [ADR-0009](decisions/ADR-0009-project-relationship-graph.md)。
 本地知识存储见 [ADR-0010](decisions/ADR-0010-local-knowledge-storage.md)。
+本地知识查询见 [ADR-0011](decisions/ADR-0011-local-knowledge-query.md)。

@@ -16,6 +16,7 @@ from .graph import ProjectRelationship, ProjectRelationshipGraph
 from .history import ProjectChange, ProjectHistoryEvent, ProjectSnapshot
 from .knowledge import KnowledgeRecord
 from .project import Project
+from .query import KnowledgeQuery, KnowledgeQueryResult
 from .repository import Repository
 from .snapshot import RepositorySnapshot
 from .structure import ProjectStructure
@@ -29,6 +30,8 @@ __all__ = [
     "HistoryEventType",
     "KnowledgeRecord",
     "KnowledgeRecordType",
+    "KnowledgeQuery",
+    "KnowledgeQueryResult",
     "Project",
     "ProjectArtifact",
     "ProjectChange",
