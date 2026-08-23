@@ -2,7 +2,7 @@
 
 ## 当前边界
 
-TASK-002 在 `src/project_atlas/domain/` 建立纯内存领域契约。Domain 层只定义 Project、Task、生命周期状态、基础校验和序列化，不执行 I/O，也不依赖基础设施。
+TASK-002 与 TASK-003 在 `src/project_atlas/domain/` 建立纯内存领域契约。Domain 层定义 Project、Task、Repository、Artifact、Snapshot、Relationship、生命周期状态、基础校验和序列化，不执行 I/O，也不依赖基础设施。
 
 仓库目前没有项目发现、文件扫描、Git 分析、AI 分析、Dashboard、数据库、API 或其他业务能力。
 
@@ -21,3 +21,4 @@ TASK-002 在 `src/project_atlas/domain/` 建立纯内存领域契约。Domain �
 - 只有获得具体 Task 授权后，才可增加发现、持久化、分析或界面模块。
 
 领域模型决策见 [ADR-0001](decisions/ADR-0001-domain-model.md)。
+资产抽象决策见 [ADR-0002](decisions/ADR-0002-repository-asset-model.md)。

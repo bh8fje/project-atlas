@@ -8,6 +8,7 @@
 - 建立协作、测试和状态记录规范
 - 初始化版本控制
 - 建立 Project、Task 与生命周期状态的核心领域契约
+- 建立 Repository、Artifact、Snapshot 与 Relationship 资产契约
 
 ## 后续候选阶段
 

@@ -27,3 +27,11 @@ def parse_datetime(value: object, field_name: str) -> datetime:
     except ValueError as error:
         raise ValueError(f"{field_name} must be a valid ISO 8601 datetime") from error
     return require_aware_datetime(parsed, field_name)
+
+
+def require_non_negative_int(value: object, field_name: str) -> int:
+    if isinstance(value, bool) or not isinstance(value, int):
+        raise TypeError(f"{field_name} must be an integer")
+    if value < 0:
+        raise ValueError(f"{field_name} must not be negative")
+    return value

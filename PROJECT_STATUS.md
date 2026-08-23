@@ -4,15 +4,17 @@
 
 Phase 0 - Foundation。
 
-TASK-002 COMPLETED。
+TASK-003 COMPLETED。
 
-当前版本：`v0.2.0`。
+当前版本：`v0.3.0`。
 
 ## 当前能力
 
 - 已定义 `Project` 与 `Task` 核心领域模型。
 - 已定义 `ProjectStatus` 与 `TaskStatus` 生命周期状态。
 - 已提供基础校验、Task 状态迁移及 JSON 兼容的字典序列化。
+- 已定义 `ProjectArtifact`、`Repository`、`RepositorySnapshot` 与 `AssetRelationship` 项目资产模型。
+- 已定义 `ArtifactType` 与 `RelationshipType` 资产分类和关系类型。
 - 尚无项目发现、扫描、Git 分析、AI、持久化、API 或界面功能。
 
 ## 工程基线
@@ -20,7 +22,7 @@ TASK-002 COMPLETED。
 - 状态：已建立目录、配置、文档与开发规范基线
 - 运行环境：Python 3.11+，无第三方运行时依赖
 - 测试框架：Python `unittest`
-- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，12 项测试通过
+- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，21 项测试通过
 - 版本控制：Git 已纳入 TASK-001 完成流程
 - 远端镜像：GitHub `bh8fje/project-atlas` 与群晖 `project-atlas.git`
 - 发布规则：所有发布提交必须双推送并分别验证
@@ -28,4 +30,4 @@ TASK-002 COMPLETED。
 
 ## 下一步
 
-- 等待用户明确启动后续 Task；不自动开始 TASK-003。
+- 等待用户明确启动后续 Task；不自动开始 TASK-004。

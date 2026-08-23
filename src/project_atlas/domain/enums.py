@@ -21,3 +21,23 @@ class TaskStatus(str, Enum):
     COMPLETED = "COMPLETED"
     BLOCKED = "BLOCKED"
     CANCELLED = "CANCELLED"
+
+
+class ArtifactType(str, Enum):
+    """Classification of an artifact within a software project."""
+
+    FILE = "FILE"
+    DIRECTORY = "DIRECTORY"
+    DOCUMENT = "DOCUMENT"
+    SOURCE_CODE = "SOURCE_CODE"
+    CONFIGURATION = "CONFIGURATION"
+    UNKNOWN = "UNKNOWN"
+
+
+class RelationshipType(str, Enum):
+    """Semantic relationship between two project assets."""
+
+    CONTAINS = "CONTAINS"
+    DEPENDS_ON = "DEPENDS_ON"
+    GENERATED_FROM = "GENERATED_FROM"
+    UNKNOWN = "UNKNOWN"
