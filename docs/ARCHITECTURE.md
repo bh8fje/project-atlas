@@ -36,7 +36,9 @@ TASK-018 在 `src/project_atlas/application/` 建立进程内 `CommandCenter`。
 
 TASK-019 在 Intelligence 层建立确定性多项目聚合。它只组合调用者提供的 Project、Understanding 和关系图，生成共同风险、孤立项目与项目摘要，不发起新的发现或 AI 调用。
 
-仓库目前没有具体模型适配器、Git 分析、移动访问、控制入口、API 或其他后续业务能力。
+TASK-020 在 Intelligence 层建立显式触发的 `AutonomousProjectAgent` 观察周期。Agent 将已提供的变化与组合风险转换为 Signal 和建议，领域契约强制零执行动作。
+
+仓库目前没有具体模型适配器、Git commit 分析、公网服务、后台 Agent 调度、自动操作或 API。
 
 ## 设计约束
 
@@ -54,7 +56,7 @@ TASK-019 在 Intelligence 层建立确定性多项目聚合。它只组合调用
 - `src/project_atlas/fingerprint/`：生成稳定本地身份和版本化元数据摘要，不保存历史或判断变化类型。
 - `src/project_atlas/history/`：比较显式提供的结构并生成变化事实，不采集、持久化或展示历史。
 - `src/project_atlas/knowledge/`：构建显式项目关系图，并在调用者指定的 SQLite 文件中保存版本化知识记录；不自动采集或推断关系。
-- `src/project_atlas/intelligence/`：准备受控 AI 上下文，并通过调用者注入的 Provider 执行结构化分析；不内置凭据或端点。
+- `src/project_atlas/intelligence/`：准备受控 AI 上下文，通过注入 Provider 执行结构化分析，并确定性聚合多项目事实与观察 Signal；不内置凭据、端点、调度或动作执行。
 - `dashboard/`：本地只读界面与独立前端构建；不直接访问 Python Core、存储或外部服务。
 - `src/project_atlas/application/`：协调显式用户命令与副作用边界；不拥有 Domain 数据或隐式注册执行器。
 - 未来基础设施或应用层只能依赖 Domain 层；Domain 层不得反向依赖它们。
@@ -78,3 +80,4 @@ Provider-neutral 项目理解见 [ADR-0013](decisions/ADR-0013-provider-neutral-
 移动端本地 Web 访问见 [ADR-0016](decisions/ADR-0016-mobile-local-web-access.md)。
 显式 Command Center 见 [ADR-0017](decisions/ADR-0017-explicit-command-center.md)。
 确定性多项目智能见 [ADR-0018](decisions/ADR-0018-deterministic-multi-project-intelligence.md)。
+受控 Autonomous Project Agent 见 [ADR-0019](decisions/ADR-0019-controlled-autonomous-agent.md)。

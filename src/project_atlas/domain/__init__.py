@@ -1,6 +1,7 @@
 """Public domain contracts for Project Atlas."""
 
 from .asset import AssetRelationship, ProjectArtifact
+from .agent import AgentObservationCycle, AgentSignal, AgentSignalSeverity, AgentSignalType
 from .ai_context import AIContext
 from .assistant import ProjectAssistantAnswer
 from .command import CommandDefinition, CommandEffect, CommandRequest, CommandResult, CommandStatus
@@ -30,6 +31,10 @@ from .understanding import ProjectUnderstanding
 
 __all__ = [
     "AIContext",
+    "AgentObservationCycle",
+    "AgentSignal",
+    "AgentSignalSeverity",
+    "AgentSignalType",
     "ArtifactType",
     "AssetRelationship",
     "ChangeType",

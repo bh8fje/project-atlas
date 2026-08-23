@@ -2,11 +2,11 @@
 
 ## 当前阶段
 
-Phase 6 - Advanced Intelligence（IN PROGRESS）。
+Phase 6 - Advanced Intelligence（COMPLETED）。
 
-TASK-019 COMPLETED。
+TASK-020 COMPLETED。
 
-当前版本：`v0.19.0`。
+当前版本：`v0.20.0`。
 
 ## 当前能力
 
@@ -46,21 +46,24 @@ TASK-019 COMPLETED。
 - Command Center 未预置 Handler，不执行 Shell、网络请求或隐式自动化。
 - 已提供确定性 `MultiProjectIntelligenceService`，聚合项目摘要、共同风险、关系数量和孤立项目。
 - 多项目聚合不重新发现项目、不调用 AI、不写入存储，也不推断关系。
-- 尚无具体模型适配器、Git 分析、主动 Agent 或 API。
+- 已提供显式触发的 `AutonomousProjectAgent`，将已有变化和组合风险转换为可追踪 Signal 与建议。
+- Agent 观察周期强制零执行动作，不包含后台调度、自动修改、通知发送或网络调用。
+- Execution Plan 1.0 的 TASK-001 至 TASK-020 已全部完成。
+- 尚无具体模型适配器、Git commit 分析、公网服务或 API。
 
 ## 工程基线
 
 - 状态：已建立目录、配置、文档与开发规范基线
 - 运行环境：Python 3.11+；Dashboard 构建需要 Node.js 22.13+
 - 测试框架：Python `unittest`
-- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，130 项测试通过；`dashboard/` 生产构建通过
+- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，138 项测试通过；`dashboard/` 生产构建通过
 - 版本控制：Git 已纳入 TASK-001 完成流程
 - 远端镜像：GitHub `bh8fje/project-atlas` 与群晖 `project-atlas.git`
 - 发布规则：所有发布提交必须双推送并分别验证
 - 版本规则：每个里程碑使用带备注的 Git 标签，规范见 `docs/VERSIONING.md`
-- 执行计划：`EXECUTION_PLAN.md` Version 1.0，状态 ACTIVE
+- 执行计划：`EXECUTION_PLAN.md` Version 1.0，状态 COMPLETED
 
 ## 下一步
 
-- 开始 TASK-020 Autonomous Project Agent。
-- 不扩大为无人值守执行或自动修改项目。
+- Execution Plan 1.0 已完成。
+- 等待新的明确 Task；不自动扩大为无人值守执行或自动修改项目。
