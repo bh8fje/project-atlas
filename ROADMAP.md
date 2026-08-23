@@ -14,11 +14,11 @@
 - TASK-005 Project Structure Analyzer — COMPLETED
 - TASK-006 Project Fingerprint System — COMPLETED
 
-## Phase 2 - Project Memory（IN PROGRESS）
+## Phase 2 - Project Memory（COMPLETED）
 
 - TASK-007 Project History Model — COMPLETED
 - TASK-008 Change Detection Engine — COMPLETED
-- TASK-009 Project Timeline — PLANNED
+- TASK-009 Project Timeline — COMPLETED
 
 ## 后续阶段（PLANNED）
 
@@ -27,4 +27,4 @@
 - Phase 5 - Interface：TASK-016 至 TASK-018
 - Phase 6 - Advanced Intelligence：TASK-019 至 TASK-020
 
-下一任务为 TASK-009 Project Timeline；不提前实现 TASK-010 关系图。
+下一任务为 TASK-010 Project Relationship Graph；不提前实现 TASK-011 存储。

@@ -16,6 +16,7 @@ from .repository import Repository
 from .snapshot import RepositorySnapshot
 from .structure import ProjectStructure
 from .task import Task
+from .timeline import ProjectTimeline
 
 __all__ = [
     "ArtifactType",
@@ -30,6 +31,7 @@ __all__ = [
     "ProjectSnapshot",
     "ProjectStatus",
     "ProjectStructure",
+    "ProjectTimeline",
     "RelationshipType",
     "Repository",
     "RepositorySnapshot",

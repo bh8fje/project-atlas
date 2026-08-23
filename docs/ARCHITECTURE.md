@@ -14,7 +14,9 @@ TASK-007 在 Domain 层建立 `ProjectSnapshot`、`ProjectChange` 和 `ProjectHi
 
 TASK-008 在 `src/project_atlas/history/` 建立纯内存变化检测层。该层比较调用者提供的两个 `ProjectStructure`，以相对路径和资产元数据生成有序 `ProjectChange`，不自行扫描或保存结果。
 
-仓库目前没有时间线、Git 分析、内容语义分析、AI 分析、Dashboard、数据库、API 或其他后续业务能力。
+TASK-009 在 Domain 与 History 层建立 `ProjectTimeline` 和 `ProjectTimelineBuilder`。构建器校验项目归属及历史引用，并按时间与 Event ID 生成确定性事件顺序。
+
+仓库目前没有跨项目关系图、Git 分析、内容语义分析、AI 分析、Dashboard、数据库、API 或其他后续业务能力。
 
 ## 设计约束
 
@@ -41,3 +43,4 @@ TASK-008 在 `src/project_atlas/history/` 建立纯内存变化检测层。该�
 项目指纹决策见 [ADR-0005](decisions/ADR-0005-project-fingerprint.md)。
 项目历史模型见 [ADR-0006](decisions/ADR-0006-project-history-model.md)。
 结构变化检测见 [ADR-0007](decisions/ADR-0007-structure-change-detection.md)。
+项目时间线见 [ADR-0008](decisions/ADR-0008-project-timeline.md)。
