@@ -4,9 +4,9 @@
 
 Phase 7 - Global Experience（COMPLETED）。
 
-TASK-023 COMPLETED。
+TASK-024 COMPLETED。
 
-当前版本：`v0.23.0`。
+当前版本：`v0.24.0`。
 
 ## 当前能力
 
@@ -55,6 +55,9 @@ TASK-023 COMPLETED。
 - Dashboard 不再使用“供应商无关的分析契约”等内部工程表述介绍功能。
 - 产品文案标准已调整为专业、清晰和准确，同时避免难懂术语与过度口语化。
 - Dashboard 建设进度的八个阶段均可展开，查看阶段说明与已实现功能。
+- Dashboard 已将原“项目关系”示意改为“项目组成”，明确标注代码仓库、核心功能和本地资料的连接含义。
+- Dashboard 明确标注当前数字为发布记录，已移除无数据支持的“100%”健康分数和实时稳定表述。
+- Dashboard 设计边界已记录在 `docs/DASHBOARD_DESIGN.md`。
 - 尚无具体模型适配器、Git commit 分析、公网服务或 API。
 
 ## 工程基线
@@ -62,14 +65,14 @@ TASK-023 COMPLETED。
 - 状态：已建立目录、配置、文档与开发规范基线
 - 运行环境：Python 3.11+；Dashboard 构建需要 Node.js 22.13+
 - 测试框架：Python `unittest`
-- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，151 项测试通过；`dashboard/` 生产构建通过
+- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，154 项测试通过；`dashboard/` 生产构建通过
 - 版本控制：Git 已纳入 TASK-001 完成流程
 - 远端镜像：GitHub `bh8fje/project-atlas` 与群晖 `project-atlas.git`
 - 发布规则：所有发布提交必须双推送并分别验证
 - 版本规则：每个里程碑使用带备注的 Git 标签，规范见 `docs/VERSIONING.md`
-- 执行计划：`EXECUTION_PLAN.md` Version 1.3，状态 COMPLETED
+- 执行计划：`EXECUTION_PLAN.md` Version 1.4，状态 COMPLETED
 
 ## 下一步
 
-- Execution Plan 1.3 已完成。
+- Execution Plan 1.4 已完成。
 - 等待新的明确 Task；面向用户的新文案继续遵循中文优先、专业清晰且不过度口语化的规范。

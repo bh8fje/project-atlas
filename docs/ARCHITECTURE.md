@@ -44,6 +44,8 @@ TASK-022 规定 Dashboard 等用户界面以清晰中文为文案源，其他语
 
 TASK-023 将该标准进一步收敛为专业、清晰且不过度口语化，并将 Dashboard 建设阶段建模为本地静态的可展开详情；决策见 `docs/decisions/ADR-0022-browsable-development-phases.md`。
 
+TASK-024 规定 Dashboard 的静态数字必须标记为发布记录，项目组成示意必须与真实的多项目关系分开。当前 Dashboard 仍不读取实时核心数据；设计原则见 `docs/DASHBOARD_DESIGN.md`，决策见 `docs/decisions/ADR-0023-dashboard-information-semantics.md`。
+
 仓库目前没有具体模型适配器、Git commit 分析、公网服务、后台 Agent 调度、自动操作或 API。
 
 ## 设计约束

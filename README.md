@@ -63,6 +63,8 @@ npm run dev
 
 产品文案先用专业、清晰的中文确定含义，避免难懂术语和过度口语化，再翻译其他语言。具体规范见 [docs/PRODUCT_LANGUAGE.md](docs/PRODUCT_LANGUAGE.md)。
 
+Dashboard 必须区分发布记录、项目组成和实时分析，不展示没有数据支持的运行结论。具体原则见 [docs/DASHBOARD_DESIGN.md](docs/DASHBOARD_DESIGN.md)。
+
 ## 本地知识存储
 
 存储路径必须由调用者显式指定，默认拒绝覆盖已有记录：

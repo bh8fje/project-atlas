@@ -50,5 +50,6 @@ Execution Plan 1.0 的 TASK-001 至 TASK-020 已全部完成。后续工作必�
 - TASK-021 Internationalization Language Preferences — COMPLETED
 - TASK-022 Chinese-first Plain Language — COMPLETED
 - TASK-023 Professional Product Language and Phase Details — COMPLETED
+- TASK-024 Dashboard Information Clarity — COMPLETED
 
-TASK-023 已完成：文案标准调整为专业、清晰且不过度口语化；建设进度支持逐阶段查看已实现功能。等待新的明确 Task。
+TASK-024 已完成：Dashboard 明确区分项目组成、项目关系、发布记录与实时分析，并移除没有数据支持的健康分数。等待新的明确 Task。

@@ -27,9 +27,10 @@ export type Translation = {
   tests: string;
   tasks: string;
   decisionsShort: string;
-  systemsSteady: string;
+  releaseVerifiedShort: string;
   mobileSummary: string;
   metricsLabel: string;
+  localSource: string;
   metrics: readonly [readonly [string, string], readonly [string, string], readonly [string, string], readonly [string, string]];
   executionPlan: string;
   architectureEvolution: string;
@@ -39,8 +40,9 @@ export type Translation = {
   showPhaseDetails: string;
   hidePhaseDetails: string;
   complete: string;
-  projectHealth: string;
-  everythingSteady: string;
+  releaseStatus: string;
+  releaseVerified: string;
+  releaseRecordNote: string;
   testsPassing: string;
   workingTree: string;
   clean: string;
@@ -52,17 +54,18 @@ export type Translation = {
   recentMilestones: string;
   annotatedReleases: string;
   milestones: readonly [readonly [string, string], readonly [string, string], readonly [string, string], readonly [string, string]];
-  knowledgeMap: string;
-  howConnects: string;
-  typedRelationships: string;
-  relationshipDiagram: string;
+  projectComposition: string;
+  compositionTitle: string;
+  compositionStatus: string;
+  compositionDiagram: string;
+  compositionRelations: readonly [string, string, string];
   project: string;
   repository: string;
-  domain: string;
+  coreFeatures: string;
   coreModels: string;
-  knowledge: string;
+  localData: string;
   localMemory: string;
-  mapNote: string;
+  compositionNote: string;
   commandCenter: string;
   controlBoundary: string;
   auditable: string;
@@ -77,11 +80,11 @@ export type Translation = {
 export const translations: Record<Language, Translation> = {
   zh: {
     languageName: '中文', followSystem: '跟随系统', selectLanguage: '语言',
-    nav: ['概览', '历史', '关系', '状态', '操作'],
-    localOnly: '仅限本地', dataStays: '你的数据只保存在这台设备上', workspace: '项目工作区', greeting: '早上好。', planComplete: '项目建设计划 1.3 · 已完成',
-    heroLead: '你的软件世界，', heroAccent: '在本地绘成地图。', heroCopy: '以平静、持久的方式了解项目是什么、如何变化，以及每个部分如何连接。', graphSummary: '项目关系图摘要',
-    tests: '项测试', tasks: '项任务', decisionsShort: '项说明', systemsSteady: '所有系统稳定', mobileSummary: '移动端项目摘要', metricsLabel: '项目指标',
-    metrics: [['完成事项', '已全部发布'], ['检查', '全部通过'], ['重要设计', '都有说明'], ['联网次数', '不会把数据发出去']],
+    nav: ['概览', '历史', '组成', '状态', '操作'],
+    localOnly: '仅限本地', dataStays: '你的数据只保存在这台设备上', workspace: '项目工作区', greeting: '项目概览', planComplete: '项目建设计划 1.4 · 已完成',
+    heroLead: 'Project Atlas，', heroAccent: '本地项目知识系统。', heroCopy: '查看 Project Atlas 当前版本的建设进度、项目组成和发布记录。当前页面仅展示本地发布资料，不进行实时扫描或分析。', graphSummary: '当前版本摘要',
+    tests: '项测试', tasks: '项任务', decisionsShort: '项说明', releaseVerifiedShort: '发布记录已验证', mobileSummary: '移动端发布摘要', metricsLabel: '发布记录指标', localSource: '本地',
+    metrics: [['完成任务', '已记录'], ['自动测试', '最近一次全部通过'], ['设计说明', '可追溯'], ['数据来源', '当前页面使用本地发布记录']],
     executionPlan: '项目建设', architectureEvolution: '建设进度', phasesComplete: '8 / 8 个阶段',
     phases: [
       { name: '基础架构', summary: '建立项目运行、领域模型与工程规范的基础。', features: ['项目与任务基础模型', '代码仓库与项目资产模型', '测试、版本与开发规范'] },
@@ -93,20 +96,20 @@ export const translations: Record<Language, Translation> = {
       { name: '智能项目管理', summary: '汇总多个项目的状态，并提供可追踪的提醒与建议。', features: ['多项目综合概览', '共同风险与项目关系汇总', '基于已有变化生成提醒与建议'] },
       { name: '多语言支持', summary: '提供含义一致的多语言界面体验。', features: ['支持中文、英语、俄语与韩语', '默认跟随系统并保存用户选择', '以专业清晰的中文统一各语言含义'] },
     ], implementedFeatures: '已实现功能', showPhaseDetails: '查看阶段详情', hidePhaseDetails: '收起阶段详情', complete: '已完成',
-    projectHealth: '项目状态', everythingSteady: '一切运行稳定', testsPassing: '项检查通过', workingTree: '文件状态', clean: '没有未保存改动', currentVersion: '当前版本', latestTask: '最近完成', mode: '工作方式', readOnly: '只查看，不修改',
+    releaseStatus: '版本状态', releaseVerified: '当前发布已通过验证', releaseRecordNote: '以下内容来自最近一次发布记录，不是实时监控结果。', testsPassing: '项测试通过', workingTree: '发布时文件状态', clean: '无未提交改动', currentVersion: '当前版本', latestTask: '最近完成', mode: '界面模式', readOnly: '本地只读',
     projectHistory: '版本记录', recentMilestones: '最近完成的功能', annotatedReleases: '每个版本都有备注',
-    milestones: [['建设阶段功能详情', '可展开每个阶段，查看已实现功能'], ['专业清晰的界面文案', '中文统一功能含义，其他语言保持一致'], ['多语言界面', '支持中文、英语、俄语和韩语，也可以跟随系统'], ['多项目综合概览', '汇总多个项目的共同风险与关系']],
-    knowledgeMap: '项目关系', howConnects: '项目各部分怎么连接', typedRelationships: '每条关系都有说明', relationshipDiagram: '项目关系图', project: '项目', repository: '代码仓库', domain: '核心功能', coreModels: '基础规则', knowledge: '项目资料', localMemory: '本地记录', mapNote: '这里只展示项目结构、历史和关系，不会修改任何内容。',
+    milestones: [['明确的项目组成与发布记录', '区分项目组成、项目关系与实时分析'], ['建设阶段功能详情', '可展开每个阶段，查看已实现功能'], ['专业清晰的界面文案', '中文统一功能含义，其他语言保持一致'], ['多语言界面', '支持中文、英语、俄语和韩语，也可以跟随系统']],
+    projectComposition: '项目组成', compositionTitle: 'Project Atlas 包含哪些部分', compositionStatus: '当前版本示意', compositionDiagram: 'Project Atlas 项目组成图', compositionRelations: ['源代码存放于', '包含', '项目资料保存在本机'], project: '项目', repository: '代码仓库', coreFeatures: '核心功能', coreModels: '领域模型与服务', localData: '本地资料', localMemory: '项目记录与知识', compositionNote: '这是当前版本的项目组成示意，不是自动扫描或实时分析结果。',
     commandCenter: '操作中心', controlBoundary: '所有操作都从这里进入', auditable: '本机运行 · 全程留痕', noHandlers: '目前没有可用操作', handlerNote: '系统启用某项操作后，它才会显示在这里。',
-    guardrails: [['说明是否修改数据', '每项操作都会说明它只查看还是会修改。'], ['修改前先确认', '没有得到确认，就不会修改任何内容。'], ['每次结果都有记录', '会记录操作编号、时间、结果和返回内容。']], mobileNavigation: '移动端导航', map: '关系',
+    guardrails: [['说明是否修改数据', '每项操作都会说明它只查看还是会修改。'], ['修改前先确认', '没有得到确认，就不会修改任何内容。'], ['每次结果都有记录', '会记录操作编号、时间、结果和返回内容。']], mobileNavigation: '移动端导航', map: '组成',
   },
   en: {
     languageName: 'English', followSystem: 'Follow system', selectLanguage: 'Language',
-    nav: ['Overview', 'History', 'Connections', 'Status', 'Actions'],
-    localOnly: 'Local only', dataStays: 'Your data stays on this device', workspace: 'Project workspace', greeting: 'Good morning.', planComplete: 'Project Plan 1.3 · Complete',
-    heroLead: 'Your software world,', heroAccent: 'mapped locally.', heroCopy: 'A calm, durable view of what your project is, how it changed, and how every part connects.', graphSummary: 'Project graph summary',
-    tests: 'tests', tasks: 'tasks', decisionsShort: 'notes', systemsSteady: 'All systems steady', mobileSummary: 'Mobile project summary', metricsLabel: 'Project metrics',
-    metrics: [['Completed work', 'All published'], ['Checks', 'All passing'], ['Key designs', 'All explained'], ['Network requests', 'No data is sent out']],
+    nav: ['Overview', 'History', 'Composition', 'Status', 'Actions'],
+    localOnly: 'Local only', dataStays: 'Your data stays on this device', workspace: 'Project workspace', greeting: 'Project overview', planComplete: 'Project Plan 1.4 · Complete',
+    heroLead: 'Project Atlas,', heroAccent: 'a local project knowledge system.', heroCopy: 'Review the current version’s development progress, project composition, and release history. This page uses local release records and does not perform real-time scanning or analysis.', graphSummary: 'Current version summary',
+    tests: 'tests', tasks: 'tasks', decisionsShort: 'notes', releaseVerifiedShort: 'Release record verified', mobileSummary: 'Mobile release summary', metricsLabel: 'Release record metrics', localSource: 'Local',
+    metrics: [['Completed tasks', 'Recorded'], ['Automated tests', 'Last run passed'], ['Design notes', 'Traceable'], ['Data source', 'Local release records']],
     executionPlan: 'Project development', architectureEvolution: 'Development progress', phasesComplete: '8 / 8 stages',
     phases: [
       { name: 'Core architecture', summary: 'Establish the project runtime, domain models, and engineering standards.', features: ['Core project and task models', 'Repository and project asset models', 'Testing, versioning, and development standards'] },
@@ -118,20 +121,20 @@ export const translations: Record<Language, Translation> = {
       { name: 'Intelligent project management', summary: 'Summarize multiple projects and provide traceable alerts and suggestions.', features: ['Multi-project overview', 'Shared risk and project relationship summary', 'Alerts and suggestions based on recorded changes'] },
       { name: 'Language support', summary: 'Provide a consistent interface in multiple languages.', features: ['Chinese, English, Russian, and Korean', 'Follow the system by default and save the user choice', 'Use clear professional Chinese as the meaning source'] },
     ], implementedFeatures: 'Implemented features', showPhaseDetails: 'View stage details', hidePhaseDetails: 'Hide stage details', complete: 'Complete',
-    projectHealth: 'Project status', everythingSteady: 'Everything is running well', testsPassing: 'checks passing', workingTree: 'File status', clean: 'No unsaved changes', currentVersion: 'Current version', latestTask: 'Last completed', mode: 'How it works', readOnly: 'View only, no changes',
+    releaseStatus: 'Release status', releaseVerified: 'Current release passed validation', releaseRecordNote: 'The information below comes from the latest release record. It is not real-time monitoring.', testsPassing: 'tests passed', workingTree: 'File status at release', clean: 'No uncommitted changes', currentVersion: 'Current version', latestTask: 'Last completed', mode: 'Interface mode', readOnly: 'Local read only',
     projectHistory: 'Version history', recentMilestones: 'Recently completed features', annotatedReleases: 'Every version has a note',
-    milestones: [['Development stage details', 'Expand each stage to review its implemented features'], ['Clear professional interface copy', 'Chinese defines the meaning consistently across all languages'], ['Multilingual interface', 'Use Chinese, English, Russian, or Korean, or follow the system'], ['Multi-project overview', 'Summarize shared risks and relationships across projects']],
-    knowledgeMap: 'Project connections', howConnects: 'How the project parts connect', typedRelationships: 'Every connection is explained', relationshipDiagram: 'Project connections diagram', project: 'Project', repository: 'Code repository', domain: 'Main features', coreModels: 'Basic rules', knowledge: 'Project information', localMemory: 'Local records', mapNote: 'This view only shows project structure, history, and connections. It changes nothing.',
+    milestones: [['Clear project composition and release records', 'Distinguishes composition, project relationships, and real-time analysis'], ['Development stage details', 'Expand each stage to review its implemented features'], ['Clear professional interface copy', 'Chinese defines the meaning consistently across all languages'], ['Multilingual interface', 'Use Chinese, English, Russian, or Korean, or follow the system']],
+    projectComposition: 'Project composition', compositionTitle: 'What Project Atlas contains', compositionStatus: 'Current version illustration', compositionDiagram: 'Project Atlas composition diagram', compositionRelations: ['Source code is stored in', 'Contains', 'Project information is stored locally'], project: 'Project', repository: 'Code repository', coreFeatures: 'Core features', coreModels: 'Domain models and services', localData: 'Local information', localMemory: 'Project records and knowledge', compositionNote: 'This illustrates the current version’s composition. It is not an automatic scan or real-time analysis.',
     commandCenter: 'Action center', controlBoundary: 'All actions start here', auditable: 'Runs locally · Fully recorded', noHandlers: 'No actions are available yet', handlerNote: 'An action appears here only after the system enables it.',
-    guardrails: [['Says whether data changes', 'Every action says whether it only views or also changes data.'], ['Confirm before changes', 'Nothing changes until you confirm it.'], ['Every result is recorded', 'The action number, time, result, and returned information are recorded.']], mobileNavigation: 'Mobile navigation', map: 'Connections',
+    guardrails: [['Says whether data changes', 'Every action says whether it only views or also changes data.'], ['Confirm before changes', 'Nothing changes until you confirm it.'], ['Every result is recorded', 'The action number, time, result, and returned information are recorded.']], mobileNavigation: 'Mobile navigation', map: 'Composition',
   },
   ru: {
     languageName: 'Русский', followSystem: 'Как в системе', selectLanguage: 'Язык',
-    nav: ['Обзор', 'История', 'Связи', 'Состояние', 'Действия'],
-    localOnly: 'Только локально', dataStays: 'Ваши данные остаются на этом устройстве', workspace: 'Рабочее пространство', greeting: 'Доброе утро.', planComplete: 'План проекта 1.3 · Завершён',
-    heroLead: 'Ваш мир программ,', heroAccent: 'на локальной карте.', heroCopy: 'Спокойное и надёжное представление о проекте, его изменениях и связях между всеми частями.', graphSummary: 'Сводка графа проекта',
-    tests: 'тестов', tasks: 'задач', decisionsShort: 'пояснений', systemsSteady: 'Все системы стабильны', mobileSummary: 'Мобильная сводка проекта', metricsLabel: 'Метрики проекта',
-    metrics: [['Выполнено', 'Всё опубликовано'], ['Проверки', 'Все пройдены'], ['Важные решения', 'Для каждого есть пояснение'], ['Сетевые запросы', 'Данные не отправляются']],
+    nav: ['Обзор', 'История', 'Состав', 'Статус', 'Действия'],
+    localOnly: 'Только локально', dataStays: 'Ваши данные остаются на этом устройстве', workspace: 'Рабочее пространство', greeting: 'Обзор проекта', planComplete: 'План проекта 1.4 · Завершён',
+    heroLead: 'Project Atlas —', heroAccent: 'локальная система знаний о проектах.', heroCopy: 'Обзор хода разработки, состава проекта и истории релизов. Страница использует локальные записи и не выполняет сканирование или анализ в реальном времени.', graphSummary: 'Сводка текущей версии',
+    tests: 'тестов', tasks: 'задач', decisionsShort: 'пояснений', releaseVerifiedShort: 'Запись релиза проверена', mobileSummary: 'Мобильная сводка релиза', metricsLabel: 'Показатели релиза', localSource: 'Локально',
+    metrics: [['Завершённые задачи', 'Записаны'], ['Автотесты', 'Последний запуск пройден'], ['Пояснения по дизайну', 'Прослеживаются'], ['Источник данных', 'Локальные записи релиза']],
     executionPlan: 'Развитие проекта', architectureEvolution: 'Ход работ', phasesComplete: '8 из 8 этапов',
     phases: [
       { name: 'Базовая архитектура', summary: 'Основа для работы проекта, доменных моделей и инженерных стандартов.', features: ['Модели проектов и задач', 'Модели репозиториев и активов', 'Тесты, версии и правила разработки'] },
@@ -143,20 +146,20 @@ export const translations: Record<Language, Translation> = {
       { name: 'Интеллектуальное управление проектами', summary: 'Сводка по нескольким проектам и отслеживаемые рекомендации.', features: ['Обзор нескольких проектов', 'Общие риски и связи', 'Предупреждения и советы по зафиксированным изменениям'] },
       { name: 'Многоязычная поддержка', summary: 'Единый по смыслу интерфейс на нескольких языках.', features: ['Китайский, английский, русский и корейский', 'Язык системы по умолчанию и сохранение выбора', 'Ясный профессиональный китайский как основа смысла'] },
     ], implementedFeatures: 'Реализованные функции', showPhaseDetails: 'Показать этап', hidePhaseDetails: 'Скрыть этап', complete: 'Готово',
-    projectHealth: 'Статус проекта', everythingSteady: 'Всё работает стабильно', testsPassing: 'проверок пройдено', workingTree: 'Состояние файлов', clean: 'Нет несохранённых изменений', currentVersion: 'Текущая версия', latestTask: 'Последнее выполненное', mode: 'Как работает', readOnly: 'Только просмотр',
+    releaseStatus: 'Статус релиза', releaseVerified: 'Текущий релиз прошёл проверку', releaseRecordNote: 'Сведения ниже взяты из последней записи релиза. Это не мониторинг в реальном времени.', testsPassing: 'тестов пройдено', workingTree: 'Файлы при релизе', clean: 'Нет незафиксированных изменений', currentVersion: 'Текущая версия', latestTask: 'Последнее выполненное', mode: 'Режим интерфейса', readOnly: 'Локальный, только чтение',
     projectHistory: 'История версий', recentMilestones: 'Недавно готовые функции', annotatedReleases: 'У каждой версии есть примечание',
-    milestones: [['Детали этапов развития', 'Каждый этап можно раскрыть и увидеть его функции'], ['Ясные профессиональные тексты', 'Китайский задаёт единый смысл для всех языков'], ['Многоязычный интерфейс', 'Китайский, английский, русский, корейский или язык системы'], ['Обзор нескольких проектов', 'Общие риски и связи между проектами']],
-    knowledgeMap: 'Связи проекта', howConnects: 'Как связаны части проекта', typedRelationships: 'У каждой связи есть пояснение', relationshipDiagram: 'Схема связей проекта', project: 'Проект', repository: 'Репозиторий кода', domain: 'Основные функции', coreModels: 'Базовые правила', knowledge: 'Данные проекта', localMemory: 'Локальные записи', mapNote: 'Здесь показаны только структура, история и связи проекта. Ничего не изменяется.',
+    milestones: [['Ясный состав проекта и записи релизов', 'Состав, связи проектов и анализ в реальном времени разделены'], ['Детали этапов развития', 'Каждый этап можно раскрыть и увидеть его функции'], ['Ясные профессиональные тексты', 'Китайский задаёт единый смысл для всех языков'], ['Многоязычный интерфейс', 'Китайский, английский, русский, корейский или язык системы']],
+    projectComposition: 'Состав проекта', compositionTitle: 'Из чего состоит Project Atlas', compositionStatus: 'Схема текущей версии', compositionDiagram: 'Схема состава Project Atlas', compositionRelations: ['Исходный код хранится в', 'Содержит', 'Данные проекта хранятся локально'], project: 'Проект', repository: 'Репозиторий кода', coreFeatures: 'Основные функции', coreModels: 'Доменные модели и сервисы', localData: 'Локальные данные', localMemory: 'Записи и знания проекта', compositionNote: 'Это схема состава текущей версии, а не результат автоматического сканирования или анализа в реальном времени.',
     commandCenter: 'Центр действий', controlBoundary: 'Все действия начинаются здесь', auditable: 'Работает локально · Всё записывается', noHandlers: 'Пока нет доступных действий', handlerNote: 'Действие появится здесь только после включения системой.',
-    guardrails: [['Показывает, изменятся ли данные', 'У каждого действия указано, только смотрит оно данные или меняет их.'], ['Подтверждение перед изменением', 'Без подтверждения ничего не изменится.'], ['Каждый результат записывается', 'Сохраняются номер действия, время, результат и полученные данные.']], mobileNavigation: 'Мобильная навигация', map: 'Связи',
+    guardrails: [['Показывает, изменятся ли данные', 'У каждого действия указано, только смотрит оно даные или меняет их.'], ['Подтверждение перед изменением', 'Без подтверждения ничего не изменится.'], ['Каждый результат записывается', 'Сохраняются номер действия, время, результат и полученные данные.']], mobileNavigation: 'Мобильная навигация', map: 'Состав',
   },
   ko: {
     languageName: '한국어', followSystem: '시스템 설정 따르기', selectLanguage: '언어',
-    nav: ['개요', '기록', '관계', '상태', '작업'],
-    localOnly: '로컬 전용', dataStays: '데이터는 이 기기에만 저장됩니다', workspace: '프로젝트 작업 공간', greeting: '좋은 아침입니다.', planComplete: '프로젝트 계획 1.3 · 완료',
-    heroLead: '소프트웨어 세계를,', heroAccent: '로컬에서 지도로.', heroCopy: '프로젝트의 현재 모습과 변화, 모든 구성 요소의 연결을 차분하고 지속적으로 보여 줍니다.', graphSummary: '프로젝트 그래프 요약',
-    tests: '테스트', tasks: '작업', decisionsShort: '설명', systemsSteady: '모든 시스템 안정', mobileSummary: '모바일 프로젝트 요약', metricsLabel: '프로젝트 지표',
-    metrics: [['완료한 일', '모두 게시됨'], ['점검', '모두 통과'], ['중요한 설계', '모두 설명됨'], ['네트워크 요청', '데이터를 밖으로 보내지 않음']],
+    nav: ['개요', '기록', '구성', '상태', '작업'],
+    localOnly: '로컬 전용', dataStays: '데이터는 이 기기에만 저장됩니다', workspace: '프로젝트 작업 공간', greeting: '프로젝트 개요', planComplete: '프로젝트 계획 1.4 · 완료',
+    heroLead: 'Project Atlas,', heroAccent: '로컬 프로젝트 지식 시스템.', heroCopy: '현재 버전의 개발 현황, 프로젝트 구성, 릴리스 기록을 확인합니다. 이 화면은 로컬 릴리스 기록을 사용하며 실시간 스캔이나 분석을 하지 않습니다.', graphSummary: '현재 버전 요약',
+    tests: '테스트', tasks: '작업', decisionsShort: '설명', releaseVerifiedShort: '릴리스 기록 검증 완료', mobileSummary: '모바일 릴리스 요약', metricsLabel: '릴리스 기록 지표', localSource: '로컬',
+    metrics: [['완료한 작업', '기록됨'], ['자동 테스트', '최근 실행 통과'], ['설계 설명', '추적 가능'], ['데이터 출처', '로컬 릴리스 기록']],
     executionPlan: '프로젝트 개발', architectureEvolution: '개발 현황', phasesComplete: '8 / 8 단계',
     phases: [
       { name: '기반 아키텍처', summary: '프로젝트 실행, 도메인 모델, 개발 표준의 기반을 구축합니다.', features: ['프로젝트와 작업 기본 모델', '코드 저장소와 프로젝트 자산 모델', '테스트, 버전, 개발 규칙'] },
@@ -168,12 +171,12 @@ export const translations: Record<Language, Translation> = {
       { name: '지능형 프로젝트 관리', summary: '여러 프로젝트를 요약하고 추적 가능한 알림과 제안을 제공합니다.', features: ['다중 프로젝트 종합 현황', '공통 위험과 프로젝트 관계 요약', '기록된 변화를 바탕으로 알림과 제안 생성'] },
       { name: '다국어 지원', summary: '여러 언어에서 의미가 일치하는 인터페이스를 제공합니다.', features: ['중국어, 영어, 러시아어, 한국어', '기본적으로 시스템 언어를 따르고 사용자 선택 저장', '명확하고 전문적인 중국어를 의미 기준으로 사용'] },
     ], implementedFeatures: '구현된 기능', showPhaseDetails: '단계 상세 보기', hidePhaseDetails: '단계 상세 접기', complete: '완료',
-    projectHealth: '프로젝트 상태', everythingSteady: '모두 안정적으로 작동합니다', testsPassing: '개 점검 통과', workingTree: '파일 상태', clean: '저장하지 않은 변경 없음', currentVersion: '현재 버전', latestTask: '최근 완료', mode: '작동 방식', readOnly: '보기만 가능',
+    releaseStatus: '릴리스 상태', releaseVerified: '현재 릴리스 검증 통과', releaseRecordNote: '아래 정보는 최근 릴리스 기록입니다. 실시간 모니터링 결과가 아닙니다.', testsPassing: '개 테스트 통과', workingTree: '릴리스 시점 파일 상태', clean: '커밋하지 않은 변경 없음', currentVersion: '현재 버전', latestTask: '최근 완료', mode: '인터페이스 모드', readOnly: '로컬 읽기 전용',
     projectHistory: '버전 기록', recentMilestones: '최근 완료한 기능', annotatedReleases: '모든 버전에 설명이 있음',
-    milestones: [['개발 단계 기능 상세', '각 단계를 펼쳐 구현된 기능을 확인'], ['명확하고 전문적인 화면 문구', '중국어로 정한 의미를 모든 언어에 일관되게 적용'], ['다국어 인터페이스', '중국어, 영어, 러시아어, 한국어 또는 시스템 언어 사용'], ['다중 프로젝트 종합 현황', '여러 프로젝트의 공통 위험과 관계를 요약']],
-    knowledgeMap: '프로젝트 관계', howConnects: '프로젝트 구성 요소의 연결 방식', typedRelationships: '모든 관계에 설명이 있음', relationshipDiagram: '프로젝트 관계 그림', project: '프로젝트', repository: '코드 저장소', domain: '주요 기능', coreModels: '기본 규칙', knowledge: '프로젝트 자료', localMemory: '로컬 기록', mapNote: '프로젝트 구조, 기록, 관계만 보여 주며 아무것도 변경하지 않습니다.',
+    milestones: [['명확한 프로젝트 구성과 릴리스 기록', '프로젝트 구성, 프로젝트 관계, 실시간 분석을 구분'], ['개발 단계 기능 상세', '각 단계를 펼쳐 구현된 기능을 확인'], ['명확하고 전문적인 화면 문구', '중국어로 정한 의미를 모든 언어에 일관되게 적용'], ['다국어 인터페이스', '중국어, 영어, 러시아어, 한국어 또는 시스템 언어 사용']],
+    projectComposition: '프로젝트 구성', compositionTitle: 'Project Atlas의 구성 요소', compositionStatus: '현재 버전 예시', compositionDiagram: 'Project Atlas 구성도', compositionRelations: ['소스 코드 저장 위치', '포함', '프로젝트 자료는 기기에 저장'], project: '프로젝트', repository: '코드 저장소', coreFeatures: '핵심 기능', coreModels: '도메인 모델과 서비스', localData: '로컬 자료', localMemory: '프로젝트 기록과 지식', compositionNote: '현재 버전의 프로젝트 구성 예시입니다. 자동 스캔이나 실시간 분석 결과가 아닙니다.',
     commandCenter: '작업 센터', controlBoundary: '모든 작업은 여기에서 시작', auditable: '기기에서 실행 · 모두 기록', noHandlers: '아직 사용할 수 있는 작업 없음', handlerNote: '시스템에서 기능을 켠 뒤에만 여기에 표시됩니다.',
-    guardrails: [['데이터 변경 여부 안내', '각 작업이 보기만 하는지 데이터를 바꾸는지 알려 줍니다.'], ['변경 전 확인', '확인하기 전에는 아무것도 바뀌지 않습니다.'], ['모든 결과 기록', '작업 번호, 시간, 결과와 반환 내용을 기록합니다.']], mobileNavigation: '모바일 탐색', map: '관계',
+    guardrails: [['데이터 변경 여부 안내', '각 작업이 보기만 하는지 데이터를 바꾸는지 알려 줍니다.'], ['변경 전 확인', '확인하기 전에는 아무것도 바뀌지 않습니다.'], ['모든 결과 기록', '작업 번호, 시간, 결과와 반환 내용을 기록합니다.']], mobileNavigation: '모바일 탐색', map: '구성',
   },
 };
 

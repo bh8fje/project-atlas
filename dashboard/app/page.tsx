@@ -11,8 +11,7 @@ import {
   translations,
 } from './i18n';
 
-const milestoneVersions = ['v0.23.0', 'v0.22.0', 'v0.21.0', 'v0.19.0'];
-const metricValues = ['23', '151', '22', '0'];
+const milestoneVersions = ['v0.24.0', 'v0.23.0', 'v0.22.0', 'v0.21.0'];
 
 const Icon = ({ children }: { children: React.ReactNode }) => (
   <span className="nav-icon" aria-hidden="true">{children}</span>
@@ -29,6 +28,7 @@ export default function Home() {
   const [expandedPhase, setExpandedPhase] = useState<number | null>(0);
   const language = preference === 'system' ? systemLanguage : preference;
   const t = translations[language];
+  const metricValues = ['24', '154', '23', t.localSource];
 
   useEffect(() => {
     const updateSystemLanguage = () => setSystemLanguage(detectSystemLanguage());
@@ -64,7 +64,7 @@ export default function Home() {
         <nav aria-label={t.nav[0]}>
           <a className="nav-link active" href="#overview"><Icon>◫</Icon>{t.nav[0]}</a>
           <a className="nav-link" href="#history"><Icon>↗</Icon>{t.nav[1]}</a>
-          <a className="nav-link" href="#relationships"><Icon>⌘</Icon>{t.nav[2]}</a>
+          <a className="nav-link" href="#composition"><Icon>⌘</Icon>{t.nav[2]}</a>
           <a className="nav-link" href="#health"><Icon>◇</Icon>{t.nav[3]}</a>
           <a className="nav-link" href="#command-center"><Icon>›_</Icon>{t.nav[4]}</a>
         </nav>
@@ -72,7 +72,7 @@ export default function Home() {
           <span className="pulse" />
           <div><strong>{t.localOnly}</strong><small>{t.dataStays}</small></div>
         </div>
-        <p className="sidebar-foot">Project Atlas · v0.23.0</p>
+        <p className="sidebar-foot">Project Atlas · v0.24.0</p>
       </aside>
 
       <main className="content">
@@ -99,15 +99,15 @@ export default function Home() {
           <div className="hero-orbit" aria-label={t.graphSummary}>
             <span className="orbit orbit-one" /><span className="orbit orbit-two" />
             <span className="node node-core">Atlas</span>
-            <span className="node node-a">151<small>{t.tests}</small></span>
-            <span className="node node-b">23<small>{t.tasks}</small></span>
-            <span className="node node-c">22<small>{t.decisionsShort}</small></span>
+            <span className="node node-a">154<small>{t.tests}</small></span>
+            <span className="node node-b">24<small>{t.tasks}</small></span>
+            <span className="node node-c">23<small>{t.decisionsShort}</small></span>
           </div>
         </section>
 
         <section className="mobile-glance" aria-label={t.mobileSummary}>
-          <div><span className="pulse" /><strong>{t.systemsSteady}</strong></div>
-          <span>151 {t.tests} · v0.23.0</span>
+          <div><span className="pulse" /><strong>{t.releaseVerifiedShort}</strong></div>
+          <span>154 {t.tests} · v0.24.0</span>
         </section>
 
         <section className="metrics" aria-label={t.metricsLabel}>
@@ -145,12 +145,12 @@ export default function Home() {
           </section>
 
           <section id="health" className="panel health-panel">
-            <div className="panel-heading"><div><p className="eyebrow">{t.projectHealth}</p><h3>{t.everythingSteady}</h3></div><span className="score">A</span></div>
-            <div className="health-ring"><div><strong>100%</strong><small>{t.testsPassing}</small></div></div>
+            <div className="panel-heading"><div><p className="eyebrow">{t.releaseStatus}</p><h3>{t.releaseVerified}</h3></div><span className="verified-badge">✓</span></div>
+            <div className="release-summary"><strong>154</strong><span>{t.testsPassing}</span><p>{t.releaseRecordNote}</p></div>
             <div className="health-grid">
               <div><span>{t.workingTree}</span><strong>{t.clean}</strong></div>
-              <div><span>{t.currentVersion}</span><strong>v0.23.0</strong></div>
-              <div><span>{t.latestTask}</span><strong>TASK-023</strong></div>
+              <div><span>{t.currentVersion}</span><strong>v0.24.0</strong></div>
+              <div><span>{t.latestTask}</span><strong>TASK-024</strong></div>
               <div><span>{t.mode}</span><strong>{t.readOnly}</strong></div>
             </div>
           </section>
@@ -165,16 +165,24 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="relationships" className="panel relationship-panel">
-          <div className="panel-heading"><div><p className="eyebrow">{t.knowledgeMap}</p><h3>{t.howConnects}</h3></div><span>{t.typedRelationships}</span></div>
-          <div className="relationship-map" aria-label={t.relationshipDiagram}>
-            <div className="map-line line-one" /><div className="map-line line-two" /><div className="map-line line-three" />
+        <section id="composition" className="panel relationship-panel">
+          <div className="panel-heading"><div><p className="eyebrow">{t.projectComposition}</p><h3>{t.compositionTitle}</h3></div><span>{t.compositionStatus}</span></div>
+          <div className="composition-map" aria-label={t.compositionDiagram}>
             <div className="map-node main-node"><small>{t.project}</small><strong>Project Atlas</strong></div>
-            <div className="map-node repository-node"><small>{t.repository}</small><strong>project-atlas</strong></div>
-            <div className="map-node domain-node"><small>{t.domain}</small><strong>{t.coreModels}</strong></div>
-            <div className="map-node memory-node"><small>{t.knowledge}</small><strong>{t.localMemory}</strong></div>
+            <div className="composition-branches">
+              <div className="composition-branch">
+                <span className="relation-label"><i aria-hidden="true">↓</i>{t.compositionRelations[0]}</span>
+                <div className="map-node"><small>{t.repository}</small><strong>project-atlas</strong></div>
+                <span className="relation-label"><i aria-hidden="true">↓</i>{t.compositionRelations[1]}</span>
+                <div className="map-node"><small>{t.coreFeatures}</small><strong>{t.coreModels}</strong></div>
+              </div>
+              <div className="composition-branch">
+                <span className="relation-label"><i aria-hidden="true">↓</i>{t.compositionRelations[2]}</span>
+                <div className="map-node"><small>{t.localData}</small><strong>{t.localMemory}</strong></div>
+              </div>
+            </div>
           </div>
-          <p className="map-note">{t.mapNote}</p>
+          <p className="map-note">{t.compositionNote}</p>
         </section>
 
         <section id="command-center" className="panel command-panel">
@@ -194,7 +202,7 @@ export default function Home() {
       <nav className="mobile-nav" aria-label={t.mobileNavigation}>
         <a className="active" href="#overview"><span>◫</span>{t.nav[0]}</a>
         <a href="#history"><span>↗</span>{t.nav[1]}</a>
-        <a href="#relationships"><span>⌘</span>{t.map}</a>
+        <a href="#composition"><span>⌘</span>{t.map}</a>
         <a href="#command-center"><span>›_</span>{t.nav[4]}</a>
       </nav>
     </div>
