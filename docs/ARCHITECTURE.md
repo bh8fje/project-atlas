@@ -28,7 +28,9 @@ TASK-014 建立 `AIProvider` 可替换接口和 `AIProjectUnderstandingService`�
 
 TASK-015 建立单轮、只读 `AIProjectAssistant` 和结构化 `ProjectAssistantAnswer`。Assistant 复用同 Project 的 Context 与 Understanding，不保存会话或执行建议。
 
-仓库目前没有具体模型适配器、Git 分析、Dashboard、移动访问、API 或其他后续业务能力。
+TASK-016 在 `dashboard/` 建立独立的 Sites/Vinext 本地界面。Dashboard 只投影已发布的项目状态、历史和关系基线，不读取远端数据、不写入 Core，也不配置云资源。
+
+仓库目前没有具体模型适配器、Git 分析、移动访问、控制入口、API 或其他后续业务能力。
 
 ## 设计约束
 
@@ -47,6 +49,7 @@ TASK-015 建立单轮、只读 `AIProjectAssistant` 和结构化 `ProjectAssista
 - `src/project_atlas/history/`：比较显式提供的结构并生成变化事实，不采集、持久化或展示历史。
 - `src/project_atlas/knowledge/`：构建显式项目关系图，并在调用者指定的 SQLite 文件中保存版本化知识记录；不自动采集或推断关系。
 - `src/project_atlas/intelligence/`：准备受控 AI 上下文，并通过调用者注入的 Provider 执行结构化分析；不内置凭据或端点。
+- `dashboard/`：本地只读界面与独立前端构建；不直接访问 Python Core、存储或外部服务。
 - 未来基础设施或应用层只能依赖 Domain 层；Domain 层不得反向依赖它们。
 - 只有获得具体 Task 授权后，才可增加发现、持久化、分析或界面模块。
 
@@ -64,3 +67,4 @@ TASK-015 建立单轮、只读 `AIProjectAssistant` 和结构化 `ProjectAssista
 受控 AI 上下文见 [ADR-0012](decisions/ADR-0012-bounded-ai-context.md)。
 Provider-neutral 项目理解见 [ADR-0013](decisions/ADR-0013-provider-neutral-ai-understanding.md)。
 只读 AI Project Assistant 见 [ADR-0014](decisions/ADR-0014-read-only-ai-project-assistant.md)。
+本地只读 Dashboard 见 [ADR-0015](decisions/ADR-0015-local-dashboard.md)。

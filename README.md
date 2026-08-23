@@ -2,7 +2,7 @@
 
 Project Atlas 是一个本地优先的 AI 项目知识地图系统，旨在帮助用户长期理解和管理自己的软件项目资产。
 
-当前仓库包含工程基础设施、项目发现与结构分析、历史与时间线、知识存储与查询、受控 AI 上下文、结构化项目理解，以及单轮只读 AI Project Assistant。尚不包含具体模型适配器、Git 分析、Dashboard、移动访问或 API。
+当前仓库包含工程基础设施、项目发现与结构分析、历史与时间线、知识存储与查询、受控 AI 上下文、结构化项目理解、单轮只读 AI Project Assistant，以及本地只读 Dashboard。尚不包含具体模型适配器、Git 分析、移动访问、控制入口或 API。
 
 ## 项目目标
 
@@ -13,6 +13,7 @@ Project Atlas 是一个本地优先的 AI 项目知识地图系统，旨在帮�
 ```text
 project-atlas/
 ├── config/              # 配置约定与示例（当前无业务配置）
+├── dashboard/           # 独立构建的本地只读 Dashboard
 ├── docs/                # 架构、开发与决策文档
 ├── src/project_atlas/   # Python 领域模型、发现、结构分析与指纹能力
 ├── tests/               # 自动化测试
@@ -26,8 +27,9 @@ project-atlas/
 ## 运行环境
 
 - Python 3.11 或更高版本
+- Node.js 22.13 或更高版本（仅 Dashboard 开发与构建）
 - Git
-- 无第三方运行时依赖
+- Python Core 无第三方运行时依赖
 
 建议使用隔离环境：
 
@@ -44,6 +46,18 @@ python3 -m pip install --editable .
 ```bash
 python3 -m unittest discover -s tests -v
 ```
+
+## 本地 Dashboard
+
+Dashboard 只展示项目状态、历史和关系基线，不连接云资源，也不会修改项目：
+
+```bash
+cd dashboard
+npm install
+npm run dev
+```
+
+打开 `http://localhost:3000/`。生产构建可运行 `npm run build`。
 
 ## 本地知识存储
 

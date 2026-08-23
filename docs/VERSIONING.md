@@ -44,3 +44,4 @@ git switch -c restore/v0.2.0 v0.2.0
 - `v0.13.0`：TASK-013，有来源、字段脱敏和字符上限的本地 AI 上下文。
 - `v0.14.0`：TASK-014，可替换 Provider 与严格结构化项目理解。
 - `v0.15.0`：TASK-015，显式单轮、可溯源且只读的 AI Project Assistant。
+- `v0.16.0`：TASK-016，独立构建、无云资源且只读的本地 Dashboard。
