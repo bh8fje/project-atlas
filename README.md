@@ -2,7 +2,7 @@
 
 Project Atlas 是一个本地优先的 AI 项目知识地图系统，旨在帮助用户长期理解和管理自己的软件项目资产。
 
-当前仓库已完成 Execution Plan 1.0：包含工程基础设施、项目发现与结构分析、历史与时间线、知识存储与查询、受控 AI 上下文、结构化项目理解、只读 AI Assistant、本地与移动 Dashboard、Command Center、多项目智能，以及受控项目观察 Agent。仓库仍不内置具体模型适配器、Git commit 分析、公网服务或 API。
+当前仓库已完成 Execution Plan 1.5：除工程基础、项目理解、历史、知识、界面和多语言能力外，还可通过本机服务选择项目目录、识别其中的软件项目并定时检查结构变化。仓库仍不内置具体模型适配器、Git commit 分析、公网服务或外部 API。
 
 ## 项目目标
 
@@ -13,7 +13,7 @@ Project Atlas 是一个本地优先的 AI 项目知识地图系统，旨在帮�
 ```text
 project-atlas/
 ├── config/              # 配置约定与示例（当前无业务配置）
-├── dashboard/           # 独立构建的本地只读 Dashboard
+├── dashboard/           # 独立构建的本地 Dashboard
 ├── docs/                # 架构、开发与决策文档
 ├── src/project_atlas/   # Python 领域模型、发现、结构分析与指纹能力
 ├── tests/               # 自动化测试
@@ -47,23 +47,31 @@ python3 -m pip install --editable .
 python3 -m unittest discover -s tests -v
 ```
 
-## 本地 Dashboard
+## 本地 Dashboard 与项目目录
 
-Dashboard 只展示项目状态、历史和关系基线，不连接云资源，也不会修改项目：
+首次使用先安装 Dashboard 依赖：
 
 ```bash
-cd dashboard
-npm install
-npm run dev
+npm --prefix dashboard install
 ```
 
-打开 `http://localhost:3000/`。生产构建可运行 `npm run build`。移动浏览器可使用窄屏导航并将页面添加到主屏幕；项目不会自动建立公网入口或云同步。
+之后在仓库根目录运行：
+
+```bash
+./scripts/start-local.sh
+```
+
+打开 `http://localhost:3000/`。在“项目目录”中点击“选择目录”，即可通过操作系统选择器指定扫描范围。系统会立即识别其中的软件项目；用户还可以手动检查，或明确开启 15、30、60 分钟的自动检查。
+
+Dashboard 的项目目录功能只连接 `127.0.0.1` 上的 Project Atlas 本机服务。目录路径、项目基本资料、结构指纹和检查结果只保存在本机；关闭本机服务后自动检查停止。移除目录不会删除用户文件。详细说明见 [docs/LOCAL_WORKSPACES.md](docs/LOCAL_WORKSPACES.md)。
+
+生产构建可在 `dashboard/` 运行 `npm run build`。移动浏览器可使用窄屏导航并将页面添加到主屏幕；项目不会自动建立公网入口或云同步。
 
 界面支持中文、英语、俄语和韩语。用户未选择时自动跟随系统语言，不受支持的系统语言回退英语；显式选择只保存在当前浏览器，选择“跟随系统”即可清除偏好。
 
 产品文案先用专业、清晰的中文确定含义，避免难懂术语和过度口语化，再翻译其他语言。具体规范见 [docs/PRODUCT_LANGUAGE.md](docs/PRODUCT_LANGUAGE.md)。
 
-Dashboard 必须区分发布记录、项目组成和实时分析，不展示没有数据支持的运行结论。具体原则见 [docs/DASHBOARD_DESIGN.md](docs/DASHBOARD_DESIGN.md)。
+Dashboard 必须区分发布记录、项目组成和本机检查结果，不展示没有数据支持的运行结论。具体原则见 [docs/DASHBOARD_DESIGN.md](docs/DASHBOARD_DESIGN.md)。
 
 ## 本地知识存储
 

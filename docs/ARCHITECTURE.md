@@ -44,9 +44,11 @@ TASK-022 规定 Dashboard 等用户界面以清晰中文为文案源，其他语
 
 TASK-023 将该标准进一步收敛为专业、清晰且不过度口语化，并将 Dashboard 建设阶段建模为本地静态的可展开详情；决策见 `docs/decisions/ADR-0022-browsable-development-phases.md`。
 
-TASK-024 规定 Dashboard 的静态数字必须标记为发布记录，项目组成示意必须与真实的多项目关系分开。当前 Dashboard 仍不读取实时核心数据；设计原则见 `docs/DASHBOARD_DESIGN.md`，决策见 `docs/decisions/ADR-0023-dashboard-information-semantics.md`。
+TASK-024 规定 Dashboard 的静态数字必须标记为发布记录，项目组成示意必须与真实的多项目关系分开；决策见 `docs/decisions/ADR-0023-dashboard-information-semantics.md`。
 
-仓库目前没有具体模型适配器、Git commit 分析、公网服务、后台 Agent 调度、自动操作或 API。
+TASK-025 在 `src/project_atlas/application/workspaces.py` 与 `src/project_atlas/local_service.py` 建立本机项目目录管理。用户通过操作系统选择器批准目录，本机服务复用既有发现、结构分析和指纹能力，并把轻量检查状态保存在本机 JSON 文件中。Dashboard 只通过固定回环地址读取这部分本机检查结果；决策见 `docs/decisions/ADR-0024-local-workspace-monitoring.md`。
+
+仓库目前没有具体模型适配器、Git commit 分析、公网服务、后台 Agent 调度、自动修改或外部 API。本机目录服务不监听局域网或公网，也不是常驻系统服务。
 
 ## 设计约束
 
@@ -65,8 +67,9 @@ TASK-024 规定 Dashboard 的静态数字必须标记为发布记录，项目组
 - `src/project_atlas/history/`：比较显式提供的结构并生成变化事实，不采集、持久化或展示历史。
 - `src/project_atlas/knowledge/`：构建显式项目关系图，并在调用者指定的 SQLite 文件中保存版本化知识记录；不自动采集或推断关系。
 - `src/project_atlas/intelligence/`：准备受控 AI 上下文，通过注入 Provider 执行结构化分析，并确定性聚合多项目事实与观察 Signal；不内置凭据、端点、调度或动作执行。
-- `dashboard/`：本地只读界面与独立前端构建；不直接访问 Python Core、存储或外部服务。
-- `src/project_atlas/application/`：协调显式用户命令与副作用边界；不拥有 Domain 数据或隐式注册执行器。
+- `dashboard/`：本地界面与独立前端构建；静态发布记录保持只读，项目目录模块只连接固定的本机回环服务，不访问外部服务。
+- `src/project_atlas/application/`：协调显式用户命令与副作用边界；项目目录登记与指纹状态使用明确的本机 JSON 文件，不隐式注册远端执行器。
+- `src/project_atlas/local_service.py`：本机目录选择和定时检查入口，只监听回环地址，只接受明确的本地 Dashboard 来源。
 - 未来基础设施或应用层只能依赖 Domain 层；Domain 层不得反向依赖它们。
 - 只有获得具体 Task 授权后，才可增加发现、持久化、分析或界面模块。
 
@@ -91,3 +94,6 @@ Provider-neutral 项目理解见 [ADR-0013](decisions/ADR-0013-provider-neutral-
 受控 Autonomous Project Agent 见 [ADR-0019](decisions/ADR-0019-controlled-autonomous-agent.md)。
 本机语言偏好见 [ADR-0020](decisions/ADR-0020-local-language-preferences.md)。
 中文优先产品文案见 [ADR-0021](decisions/ADR-0021-chinese-first-product-language.md)。
+专业产品文案与阶段详情见 [ADR-0022](decisions/ADR-0022-browsable-development-phases.md)。
+Dashboard 信息含义见 [ADR-0023](decisions/ADR-0023-dashboard-information-semantics.md)。
+本机项目目录管理见 [ADR-0024](decisions/ADR-0024-local-workspace-monitoring.md)。

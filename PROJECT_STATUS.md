@@ -2,11 +2,11 @@
 
 ## 当前阶段
 
-Phase 7 - Global Experience（COMPLETED）。
+Phase 8 - Local Operations（COMPLETED）。
 
-TASK-024 COMPLETED。
+TASK-025 COMPLETED。
 
-当前版本：`v0.24.0`。
+当前版本：`v0.25.0`。
 
 ## 当前能力
 
@@ -38,7 +38,7 @@ TASK-024 COMPLETED。
 - 已提供显式项目理解服务、严格 JSON 校验、Provider/模型归属和失败透明传播。
 - 已提供单轮只读 `AIProjectAssistant` 与可溯源 `ProjectAssistantAnswer`。
 - 已支持严格回答/建议/注意事项结构、Project 一致性校验和失败透明传播。
-- 已提供独立构建的 Sites/Vinext 本地只读 Dashboard，展示项目状态、历史和关系基线。
+- 已提供独立构建的 Sites/Vinext 本地 Dashboard；发布记录、历史和组成基线保持只读。
 - Dashboard 未配置云资源，不调用远端服务，不写入 Core。
 - 已提供移动安全区域、触控导航、Viewport 与可安装 Web App Manifest。
 - 移动访问不建立公网入口、账号、后台同步或远程数据通道。
@@ -54,25 +54,31 @@ TASK-024 COMPLETED。
 - 面向用户的内容已改为清晰中文优先，英语、俄语和韩语均按中文含义翻译。
 - Dashboard 不再使用“供应商无关的分析契约”等内部工程表述介绍功能。
 - 产品文案标准已调整为专业、清晰和准确，同时避免难懂术语与过度口语化。
-- Dashboard 建设进度的八个阶段均可展开，查看阶段说明与已实现功能。
+- Dashboard 建设进度的九个阶段均可展开，查看阶段说明与已实现功能。
 - Dashboard 已将原“项目关系”示意改为“项目组成”，明确标注代码仓库、核心功能和本地资料的连接含义。
 - Dashboard 明确标注当前数字为发布记录，已移除无数据支持的“100%”健康分数和实时稳定表述。
 - Dashboard 设计边界已记录在 `docs/DASHBOARD_DESIGN.md`。
-- 尚无具体模型适配器、Git commit 分析、公网服务或 API。
+- 已提供操作系统目录选择器，由用户明确批准需要管理的本地扫描目录。
+- 已提供本机项目目录登记、首次项目识别、手动检查和明确开关的定时检查。
+- 定时检查复用现有项目发现、结构分析和结构指纹能力，只比较结构元数据，不读取文件内容或 Git 历史。
+- Dashboard “项目目录”模块显示最近检查时间、已识别项目和新增、变化、移除摘要，并每 10 秒读取一次本机最新结果。
+- 本机服务只监听回环地址，仅接受明确的本地 Dashboard 来源；路径与检查记录不传输到外部网络。
+- 关闭本机服务后自动检查停止；移除目录只删除登记与检查记录，不删除或修改用户项目文件。
+- 尚无具体模型适配器、Git commit 分析、公网服务、常驻系统服务或外部 API。
 
 ## 工程基线
 
 - 状态：已建立目录、配置、文档与开发规范基线
 - 运行环境：Python 3.11+；Dashboard 构建需要 Node.js 22.13+
 - 测试框架：Python `unittest`
-- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，154 项测试通过；`dashboard/` 生产构建通过
+- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，168 项测试通过；`dashboard/` 生产构建通过；Dashboard 与本机服务预览均返回 HTTP 200
 - 版本控制：Git 已纳入 TASK-001 完成流程
 - 远端镜像：GitHub `bh8fje/project-atlas` 与群晖 `project-atlas.git`
 - 发布规则：所有发布提交必须双推送并分别验证
 - 版本规则：每个里程碑使用带备注的 Git 标签，规范见 `docs/VERSIONING.md`
-- 执行计划：`EXECUTION_PLAN.md` Version 1.4，状态 COMPLETED
+- 执行计划：`EXECUTION_PLAN.md` Version 1.5，状态 COMPLETED
 
 ## 下一步
 
-- Execution Plan 1.4 已完成。
+- Execution Plan 1.5 已完成。
 - 等待新的明确 Task；面向用户的新文案继续遵循中文优先、专业清晰且不过度口语化的规范。

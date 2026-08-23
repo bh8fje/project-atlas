@@ -52,4 +52,10 @@ Execution Plan 1.0 的 TASK-001 至 TASK-020 已全部完成。后续工作必�
 - TASK-023 Professional Product Language and Phase Details — COMPLETED
 - TASK-024 Dashboard Information Clarity — COMPLETED
 
-TASK-024 已完成：Dashboard 明确区分项目组成、项目关系、发布记录与实时分析，并移除没有数据支持的健康分数。等待新的明确 Task。
+TASK-024 已完成：Dashboard 明确区分项目组成、项目关系、发布记录与实时分析，并移除没有数据支持的健康分数。
+
+## Phase 8 - Local Operations（COMPLETED）
+
+- TASK-025 Local Directory Workspace Management — COMPLETED
+
+TASK-025 已完成：用户可通过系统目录选择器登记本地扫描范围，执行首次项目识别、手动检查，并明确开启定时检查。路径与检查结果只保存在本机；移除登记不会删除用户项目文件。等待新的明确 Task。

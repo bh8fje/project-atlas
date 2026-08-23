@@ -1,6 +1,6 @@
 # Project Atlas Execution Plan
 
-- Version: 1.4
+- Version: 1.5
 - Status: COMPLETED
 
 ## 1. Project Mission
@@ -320,6 +320,30 @@ AI 主动：
 - 静态数据标记为发布记录，不伪装成实时状态
 - Dashboard 设计原则与本地优先、用户可控和可追踪目标保持一致
 
+### Phase 8 - Local Operations
+
+目标：通过可控的本机运行入口管理项目扫描目录。
+
+状态：COMPLETED
+
+#### TASK-025 Local Directory Workspace Management
+
+状态：COMPLETED
+
+能力：
+
+- 通过操作系统选择器登记本地项目目录
+- 复用现有能力执行首次项目识别与手动检查
+- 用户明确开启后，在本机服务运行期间定时检查项目结构变化
+- 在 Dashboard 显示最近检查、项目清单和变化摘要
+
+边界：
+
+- 目录路径、项目资料和检查记录只保存在本机
+- 不读取文件内容或 Git 历史
+- 不建立外部网络连接、常驻系统服务或持续文件监听
+- 移除登记不删除用户项目文件
+
 ## 4. Task Execution Rules
 
 所有 Task 必须遵循以下规则。
@@ -380,9 +404,9 @@ AI 不能：
 
 ## 7. Current Execution State
 
-- Current Phase: Phase 7 - Global Experience — COMPLETED
-- Completed: TASK-001 至 TASK-024
-- Current: 无（Execution Plan 1.4 已完成）
+- Current Phase: Phase 8 - Local Operations — COMPLETED
+- Completed: TASK-001 至 TASK-025
+- Current: 无（Execution Plan 1.5 已完成）
 - Next: 无；等待新的明确 Task
 
 ## 8. Final Vision

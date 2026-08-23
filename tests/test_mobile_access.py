@@ -20,7 +20,7 @@ class MobileAccessTests(unittest.TestCase):
 
     def test_mobile_navigation_targets_existing_sections(self) -> None:
         page = (DASHBOARD / "app" / "page.tsx").read_text()
-        for target in ("#overview", "#history", "#composition", "#health"):
+        for target in ("#overview", "#workspaces", "#history", "#composition", "#health"):
             self.assertIn(f'href="{target}"', page)
         self.assertIn('className="mobile-nav"', page)
         self.assertIn("aria-label={t.mobileNavigation}", page)

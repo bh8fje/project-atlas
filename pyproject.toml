@@ -12,6 +12,9 @@ license = { text = "Proprietary" }
 authors = []
 dependencies = []
 
+[project.scripts]
+project-atlas-local = "project_atlas.local_service:main"
+
 [tool.setuptools]
 package-dir = { "" = "src" }
 

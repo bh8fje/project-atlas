@@ -27,7 +27,7 @@ class LocalDashboardTests(unittest.TestCase):
         page = (DASHBOARD / "app" / "page.tsx").read_text()
         translations = (DASHBOARD / "app" / "i18n.ts").read_text()
         self.assertIn("Local only", translations)
-        self.assertIn("Local read only", translations)
+        self.assertIn("Local operation", translations)
         self.assertIn("t.localOnly", page)
         self.assertIn("t.readOnly", page)
         self.assertNotIn("fetch(", page)
@@ -60,6 +60,27 @@ class LocalDashboardTests(unittest.TestCase):
         self.assertIn("发布记录不等于实时状态", design)
         self.assertIn("项目组成不等于项目关系", design)
         self.assertIn("不得伪造实时分析结果", design)
+
+    def test_workspace_manager_uses_only_the_loopback_service(self) -> None:
+        manager = (DASHBOARD / "app" / "workspace-manager.tsx").read_text()
+        self.assertIn("http://127.0.0.1:43821", manager)
+        self.assertNotIn("https://", manager)
+        self.assertIn("/api/workspaces", manager)
+        self.assertIn("window.setInterval", manager)
+
+    def test_workspace_manager_exposes_explicit_local_controls(self) -> None:
+        manager = (DASHBOARD / "app" / "workspace-manager.tsx").read_text()
+        translations = (DASHBOARD / "app" / "i18n.ts").read_text()
+        for control in ("chooseDirectory", "scanNow", "automaticChecks", "interval", "confirmRemove"):
+            self.assertIn(control, manager)
+        self.assertIn("目录中的文件不会被删除", translations)
+        self.assertIn("关闭本地服务后，自动检查将停止", translations)
+
+    def test_workspace_manager_displays_the_latest_check_summary(self) -> None:
+        manager = (DASHBOARD / "app" / "workspace-manager.tsx").read_text()
+        for field in ("project_count", "added", "changed", "removed"):
+            self.assertIn(f"last_summary.{field}", manager)
+        self.assertIn("change_status", manager)
 
 
 if __name__ == "__main__":

@@ -71,7 +71,7 @@ class DashboardInternationalizationTests(unittest.TestCase):
                 self.assertNotIn(casual_phrase, chinese)
 
     def test_each_development_phase_has_visible_feature_details(self) -> None:
-        self.assertEqual(self.i18n.count("features: ["), 32)
+        self.assertEqual(self.i18n.count("features: ["), 36)
         self.assertIn("已实现功能", self.i18n)
         self.assertIn("phase.features.map", self.page)
         self.assertIn("phase.summary", self.page)

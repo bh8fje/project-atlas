@@ -28,6 +28,7 @@ from .structure import ProjectStructure
 from .task import Task
 from .timeline import ProjectTimeline
 from .understanding import ProjectUnderstanding
+from .workspace import WorkspaceRoot
 
 __all__ = [
     "AIContext",
@@ -64,6 +65,7 @@ __all__ = [
     "ProjectStructure",
     "ProjectTimeline",
     "ProjectUnderstanding",
+    "WorkspaceRoot",
     "RelationshipType",
     "Repository",
     "RepositorySnapshot",
