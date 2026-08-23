@@ -4,14 +4,15 @@ const phases = [
   { name: 'Memory', progress: '100%', state: 'Complete' },
   { name: 'Knowledge Map', progress: '100%', state: 'Complete' },
   { name: 'AI Intelligence', progress: '100%', state: 'Complete' },
-  { name: 'Interface', progress: '33%', state: 'In progress' },
+  { name: 'Interface', progress: '100%', state: 'Complete' },
+  { name: 'Advanced Intelligence', progress: '50%', state: 'In progress' },
 ];
 
 const milestones = [
+  ['v0.18.0', 'Command Center', 'Explicit commands with auditable guardrails'],
   ['v0.15.0', 'AI Project Assistant', 'Read-only answers grounded in project context'],
   ['v0.14.0', 'AI Project Understanding', 'Provider-neutral analysis contracts'],
   ['v0.12.0', 'Knowledge Query Engine', 'Structured and keyword queries'],
-  ['v0.10.0', 'Relationship Graph', 'Typed links between project assets'],
 ];
 
 const Icon = ({ children }: { children: React.ReactNode }) => (
@@ -34,7 +35,7 @@ export default function Home() {
           <span className="pulse" />
           <div><strong>Local only</strong><small>Your data stays here</small></div>
         </div>
-        <p className="sidebar-foot">Project Atlas · v0.18.0</p>
+        <p className="sidebar-foot">Project Atlas · v0.19.0</p>
       </aside>
 
       <main className="content">
@@ -52,27 +53,27 @@ export default function Home() {
           <div className="hero-orbit" aria-label="Project graph summary">
             <span className="orbit orbit-one" /><span className="orbit orbit-two" />
             <span className="node node-core">Atlas</span>
-            <span className="node node-a">123<small>tests</small></span>
-            <span className="node node-b">18<small>tasks</small></span>
-            <span className="node node-c">17<small>ADRs</small></span>
+            <span className="node node-a">130<small>tests</small></span>
+            <span className="node node-b">19<small>tasks</small></span>
+            <span className="node node-c">18<small>ADRs</small></span>
           </div>
         </section>
 
         <section className="mobile-glance" aria-label="Mobile project summary">
           <div><span className="pulse" /><strong>All systems steady</strong></div>
-          <span>123 tests · v0.18.0</span>
+          <span>130 tests · v0.19.0</span>
         </section>
 
         <section className="metrics" aria-label="Project metrics">
-          <article><span>Milestones</span><strong>18</strong><small>All published</small></article>
-          <article><span>Tests</span><strong>123</strong><small>Passing baseline</small></article>
-          <article><span>Decisions</span><strong>17</strong><small>Architecture records</small></article>
+          <article><span>Milestones</span><strong>19</strong><small>All published</small></article>
+          <article><span>Tests</span><strong>130</strong><small>Passing baseline</small></article>
+          <article><span>Decisions</span><strong>18</strong><small>Architecture records</small></article>
           <article><span>External calls</span><strong>0</strong><small>Local-first by design</small></article>
         </section>
 
         <div className="two-column">
           <section className="panel phase-panel">
-            <div className="panel-heading"><div><p className="eyebrow">Execution plan</p><h3>Architecture evolution</h3></div><span>5 / 6 phases</span></div>
+            <div className="panel-heading"><div><p className="eyebrow">Execution plan</p><h3>Architecture evolution</h3></div><span>6 / 7 phases</span></div>
             <div className="phase-list">
               {phases.map((phase, index) => (
                 <div className="phase-row" key={phase.name}>
@@ -88,8 +89,8 @@ export default function Home() {
             <div className="health-ring"><div><strong>100%</strong><small>tests passing</small></div></div>
             <div className="health-grid">
               <div><span>Working tree</span><strong>Clean</strong></div>
-              <div><span>Current version</span><strong>v0.18.0</strong></div>
-              <div><span>Latest task</span><strong>TASK-018</strong></div>
+              <div><span>Current version</span><strong>v0.19.0</strong></div>
+              <div><span>Latest task</span><strong>TASK-019</strong></div>
               <div><span>Mode</span><strong>Read only</strong></div>
             </div>
           </section>

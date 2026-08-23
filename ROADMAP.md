@@ -38,8 +38,9 @@
 - TASK-017 Mobile Access — COMPLETED
 - TASK-018 Command Center — COMPLETED
 
-## 后续阶段（PLANNED）
+## Phase 6 - Advanced Intelligence（IN PROGRESS）
 
-- Phase 6 - Advanced Intelligence：TASK-019 至 TASK-020
+- TASK-019 Multi Project Intelligence — COMPLETED
+- TASK-020 Autonomous Project Agent — PLANNED
 
-Phase 5 已完成。下一任务为 TASK-019 Multi Project Intelligence；尚未实现跨项目智能聚合。
+TASK-019 已完成。下一任务为 TASK-020 Autonomous Project Agent；尚未实现主动观察循环。

@@ -34,6 +34,8 @@ TASK-017 在同一界面层增加标准 Web App Manifest、移动 Viewport、安
 
 TASK-018 在 `src/project_atlas/application/` 建立进程内 `CommandCenter`。命令必须显式注册，副作用必须声明，变更命令必须由请求明确确认；服务不包含 Shell 或远程执行器。
 
+TASK-019 在 Intelligence 层建立确定性多项目聚合。它只组合调用者提供的 Project、Understanding 和关系图，生成共同风险、孤立项目与项目摘要，不发起新的发现或 AI 调用。
+
 仓库目前没有具体模型适配器、Git 分析、移动访问、控制入口、API 或其他后续业务能力。
 
 ## 设计约束
@@ -75,3 +77,4 @@ Provider-neutral 项目理解见 [ADR-0013](decisions/ADR-0013-provider-neutral-
 本地只读 Dashboard 见 [ADR-0015](decisions/ADR-0015-local-dashboard.md)。
 移动端本地 Web 访问见 [ADR-0016](decisions/ADR-0016-mobile-local-web-access.md)。
 显式 Command Center 见 [ADR-0017](decisions/ADR-0017-explicit-command-center.md)。
+确定性多项目智能见 [ADR-0018](decisions/ADR-0018-deterministic-multi-project-intelligence.md)。

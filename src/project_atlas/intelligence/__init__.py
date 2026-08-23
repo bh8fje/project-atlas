@@ -3,6 +3,7 @@
 from .assistant import AIProjectAssistant
 from .context import AIContextBuilder
 from .provider import AIProvider, AIProviderResponse, AIRequest
+from .portfolio import MultiProjectIntelligenceService
 from .understanding import AIProjectUnderstandingService
 
 __all__ = [
@@ -12,4 +13,5 @@ __all__ = [
     "AIProvider",
     "AIProviderResponse",
     "AIRequest",
+    "MultiProjectIntelligenceService",
 ]

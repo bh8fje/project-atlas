@@ -19,6 +19,7 @@ from .graph import ProjectRelationship, ProjectRelationshipGraph
 from .history import ProjectChange, ProjectHistoryEvent, ProjectSnapshot
 from .knowledge import KnowledgeRecord
 from .project import Project
+from .portfolio import MultiProjectIntelligence, ProjectIntelligenceSummary
 from .query import KnowledgeQuery, KnowledgeQueryResult
 from .repository import Repository
 from .snapshot import RepositorySnapshot
@@ -43,6 +44,8 @@ __all__ = [
     "KnowledgeQuery",
     "KnowledgeQueryResult",
     "Project",
+    "MultiProjectIntelligence",
+    "ProjectIntelligenceSummary",
     "ProjectAssistantAnswer",
     "ProjectArtifact",
     "ProjectChange",

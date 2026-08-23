@@ -102,6 +102,8 @@ with LocalKnowledgeStore("./data/project-atlas.db") as store:
 
 `CommandCenter` 为宿主应用提供统一的进程内命令入口。命令必须显式注册；声明为变更型的命令必须在请求中明确确认，否则不会调用 Handler。仓库不内置 Shell 或远程执行命令。
 
+`MultiProjectIntelligenceService` 可将调用者明确提供的多个项目、对应理解结果与关系图聚合为组合概览。它确定性计算共同风险、关系数量和孤立项目，不重新扫描、不调用 AI，也不保存结果。
+
 ## 开发约定
 
 开始工作前请阅读 [AGENTS.md](AGENTS.md)、[EXECUTION_PLAN.md](EXECUTION_PLAN.md) 与 [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md)。项目状态以 [PROJECT_STATUS.md](PROJECT_STATUS.md) 为准，执行阶段以 [EXECUTION_PLAN.md](EXECUTION_PLAN.md) 为准，方向摘要以 [ROADMAP.md](ROADMAP.md) 为准。
