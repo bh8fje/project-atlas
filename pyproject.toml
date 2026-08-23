@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "project-atlas"
 version = "0.1.0"
-description = "A local-first AI project knowledge map (engineering foundation only)."
+description = "A local-first AI project knowledge map."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "Proprietary" }

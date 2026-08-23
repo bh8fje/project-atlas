@@ -18,7 +18,9 @@ TASK-009 在 Domain 与 History 层建立 `ProjectTimeline` 和 `ProjectTimeline
 
 TASK-010 在 Domain 与 `src/project_atlas/knowledge/` 建立显式项目关系和确定性内存图。项目图与项目内部的资产关系保持独立，不自动推断边。
 
-仓库目前没有知识持久化、Git 分析、内容语义分析、AI 分析、Dashboard、API 或其他后续业务能力。
+TASK-011 在 Domain 与 Knowledge 层建立版本化 `KnowledgeRecord` 和事务化 SQLite 本地存储。存储路径与覆盖行为必须显式，记录内容使用规范 JSON 信封。
+
+仓库目前没有知识查询引擎、Git 分析、内容语义分析、AI 分析、Dashboard、API 或其他后续业务能力。
 
 ## 设计约束
 
@@ -35,7 +37,7 @@ TASK-010 在 Domain 与 `src/project_atlas/knowledge/` 建立显式项目关系�
 - `src/project_atlas/analysis/`：受深度和资产数量约束的结构与技术标记分析，不读取文件内容。
 - `src/project_atlas/fingerprint/`：生成稳定本地身份和版本化元数据摘要，不保存历史或判断变化类型。
 - `src/project_atlas/history/`：比较显式提供的结构并生成变化事实，不采集、持久化或展示历史。
-- `src/project_atlas/knowledge/`：构建显式项目关系图；当前不存储、不推断关系。
+- `src/project_atlas/knowledge/`：构建显式项目关系图，并在调用者指定的 SQLite 文件中保存版本化知识记录；不自动采集或推断关系。
 - 未来基础设施或应用层只能依赖 Domain 层；Domain 层不得反向依赖它们。
 - 只有获得具体 Task 授权后，才可增加发现、持久化、分析或界面模块。
 
@@ -48,3 +50,4 @@ TASK-010 在 Domain 与 `src/project_atlas/knowledge/` 建立显式项目关系�
 结构变化检测见 [ADR-0007](decisions/ADR-0007-structure-change-detection.md)。
 项目时间线见 [ADR-0008](decisions/ADR-0008-project-timeline.md)。
 项目关系图见 [ADR-0009](decisions/ADR-0009-project-relationship-graph.md)。
+本地知识存储见 [ADR-0010](decisions/ADR-0010-local-knowledge-storage.md)。

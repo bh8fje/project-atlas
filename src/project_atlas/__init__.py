@@ -1,6 +1,3 @@
-"""Project Atlas package metadata.
-
-The package intentionally contains no business functionality at this stage.
-"""
+"""Project Atlas local-first project knowledge map."""
 
 __version__ = "0.1.0"

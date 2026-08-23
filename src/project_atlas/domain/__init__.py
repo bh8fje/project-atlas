@@ -5,6 +5,7 @@ from .enums import (
     ArtifactType,
     ChangeType,
     HistoryEventType,
+    KnowledgeRecordType,
     ProjectRelationshipType,
     ProjectStatus,
     RelationshipType,
@@ -13,6 +14,7 @@ from .enums import (
 from .fingerprint import ProjectFingerprint
 from .graph import ProjectRelationship, ProjectRelationshipGraph
 from .history import ProjectChange, ProjectHistoryEvent, ProjectSnapshot
+from .knowledge import KnowledgeRecord
 from .project import Project
 from .repository import Repository
 from .snapshot import RepositorySnapshot
@@ -25,6 +27,8 @@ __all__ = [
     "AssetRelationship",
     "ChangeType",
     "HistoryEventType",
+    "KnowledgeRecord",
+    "KnowledgeRecordType",
     "Project",
     "ProjectArtifact",
     "ProjectChange",

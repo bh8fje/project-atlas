@@ -23,7 +23,7 @@
 ## Phase 3 - Knowledge Map（IN PROGRESS）
 
 - TASK-010 Project Relationship Graph — COMPLETED
-- TASK-011 Knowledge Storage — PLANNED
+- TASK-011 Knowledge Storage — COMPLETED
 - TASK-012 Knowledge Query Engine — PLANNED
 
 ## 后续阶段（PLANNED）
@@ -32,4 +32,4 @@
 - Phase 5 - Interface：TASK-016 至 TASK-018
 - Phase 6 - Advanced Intelligence：TASK-019 至 TASK-020
 
-下一任务为 TASK-011 Knowledge Storage；不提前实现 TASK-012 查询引擎。
+下一任务为 TASK-012 Knowledge Query Engine；不提前实现 TASK-013 AI 上下文。

@@ -67,3 +67,16 @@ class ProjectRelationshipType(str, Enum):
     GENERATED_FROM = "GENERATED_FROM"
     RELATED_TO = "RELATED_TO"
     UNKNOWN = "UNKNOWN"
+
+
+class KnowledgeRecordType(str, Enum):
+    """Type discriminator for locally stored knowledge records."""
+
+    PROJECT = "PROJECT"
+    PROJECT_STRUCTURE = "PROJECT_STRUCTURE"
+    PROJECT_SNAPSHOT = "PROJECT_SNAPSHOT"
+    PROJECT_CHANGE = "PROJECT_CHANGE"
+    HISTORY_EVENT = "HISTORY_EVENT"
+    PROJECT_TIMELINE = "PROJECT_TIMELINE"
+    RELATIONSHIP_GRAPH = "RELATIONSHIP_GRAPH"
+    UNKNOWN = "UNKNOWN"

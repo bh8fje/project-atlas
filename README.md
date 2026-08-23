@@ -2,7 +2,7 @@
 
 Project Atlas 是一个本地优先的 AI 项目知识地图系统，旨在帮助用户长期理解和管理自己的软件项目资产。
 
-当前仓库包含工程基础设施、核心领域契约、本地项目发现、结构分析、稳定身份与指纹、历史与时间线，以及显式声明的跨项目关系图。尚不包含知识持久化、Git 分析、内容语义分析、AI、API 或界面。
+当前仓库包含工程基础设施、核心领域契约、本地项目发现、结构分析、稳定身份与指纹、历史与时间线、跨项目关系图，以及显式路径的 SQLite 本地知识存储。尚不包含知识查询引擎、Git 分析、内容语义分析、AI、API 或界面。
 
 ## 项目目标
 
@@ -44,6 +44,30 @@ python3 -m pip install --editable .
 ```bash
 python3 -m unittest discover -s tests -v
 ```
+
+## 本地知识存储
+
+存储路径必须由调用者显式指定，默认拒绝覆盖已有记录：
+
+```python
+from datetime import datetime, timezone
+
+from project_atlas.domain import KnowledgeRecord, KnowledgeRecordType
+from project_atlas.knowledge import LocalKnowledgeStore
+
+record = KnowledgeRecord.from_payload(
+    id="project-1",
+    record_type=KnowledgeRecordType.PROJECT,
+    project_id="project-1",
+    recorded_at=datetime.now(timezone.utc),
+    payload={"name": "Project Atlas"},
+)
+
+with LocalKnowledgeStore("./data/project-atlas.db") as store:
+    store.save(record)
+```
+
+数据库只保存在指定的本地文件中。当前版本不提供加密、自动同步或后台采集。
 
 ## 开发约定
 
