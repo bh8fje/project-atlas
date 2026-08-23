@@ -33,7 +33,7 @@ export default function Home() {
           <span className="pulse" />
           <div><strong>Local only</strong><small>Your data stays here</small></div>
         </div>
-        <p className="sidebar-foot">Project Atlas · v0.16.0</p>
+        <p className="sidebar-foot">Project Atlas · v0.17.0</p>
       </aside>
 
       <main className="content">
@@ -51,16 +51,21 @@ export default function Home() {
           <div className="hero-orbit" aria-label="Project graph summary">
             <span className="orbit orbit-one" /><span className="orbit orbit-two" />
             <span className="node node-core">Atlas</span>
-            <span className="node node-a">106<small>tests</small></span>
-            <span className="node node-b">15<small>tasks</small></span>
-            <span className="node node-c">14<small>ADRs</small></span>
+            <span className="node node-a">114<small>tests</small></span>
+            <span className="node node-b">17<small>tasks</small></span>
+            <span className="node node-c">16<small>ADRs</small></span>
           </div>
         </section>
 
+        <section className="mobile-glance" aria-label="Mobile project summary">
+          <div><span className="pulse" /><strong>All systems steady</strong></div>
+          <span>114 tests · v0.17.0</span>
+        </section>
+
         <section className="metrics" aria-label="Project metrics">
-          <article><span>Milestones</span><strong>15</strong><small>All published</small></article>
-          <article><span>Tests</span><strong>106</strong><small>Passing baseline</small></article>
-          <article><span>Decisions</span><strong>14</strong><small>Architecture records</small></article>
+          <article><span>Milestones</span><strong>17</strong><small>All published</small></article>
+          <article><span>Tests</span><strong>114</strong><small>Passing baseline</small></article>
+          <article><span>Decisions</span><strong>16</strong><small>Architecture records</small></article>
           <article><span>External calls</span><strong>0</strong><small>Local-first by design</small></article>
         </section>
 
@@ -82,8 +87,8 @@ export default function Home() {
             <div className="health-ring"><div><strong>100%</strong><small>tests passing</small></div></div>
             <div className="health-grid">
               <div><span>Working tree</span><strong>Clean</strong></div>
-              <div><span>Current version</span><strong>v0.16.0</strong></div>
-              <div><span>Active task</span><strong>TASK-016</strong></div>
+              <div><span>Current version</span><strong>v0.17.0</strong></div>
+              <div><span>Latest task</span><strong>TASK-017</strong></div>
               <div><span>Mode</span><strong>Read only</strong></div>
             </div>
           </section>
@@ -110,6 +115,12 @@ export default function Home() {
           <p className="map-note">A read-only projection of Project Atlas’ domain, history, and knowledge relationships.</p>
         </section>
       </main>
+      <nav className="mobile-nav" aria-label="Mobile navigation">
+        <a className="active" href="#overview"><span>◫</span>Overview</a>
+        <a href="#history"><span>↗</span>History</a>
+        <a href="#relationships"><span>⌘</span>Map</a>
+        <a href="#health"><span>◇</span>Health</a>
+      </nav>
     </div>
   );
 }

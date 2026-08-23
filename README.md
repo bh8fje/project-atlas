@@ -57,7 +57,7 @@ npm install
 npm run dev
 ```
 
-打开 `http://localhost:3000/`。生产构建可运行 `npm run build`。
+打开 `http://localhost:3000/`。生产构建可运行 `npm run build`。移动浏览器可使用窄屏导航并将页面添加到主屏幕；项目不会自动建立公网入口或云同步。
 
 ## 本地知识存储
 

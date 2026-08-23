@@ -45,3 +45,4 @@ git switch -c restore/v0.2.0 v0.2.0
 - `v0.14.0`：TASK-014，可替换 Provider 与严格结构化项目理解。
 - `v0.15.0`：TASK-015，显式单轮、可溯源且只读的 AI Project Assistant。
 - `v0.16.0`：TASK-016，独立构建、无云资源且只读的本地 Dashboard。
+- `v0.17.0`：TASK-017，支持安全区域、触控导航和本地安装的移动 Web 访问。

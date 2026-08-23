@@ -30,6 +30,8 @@ TASK-015 建立单轮、只读 `AIProjectAssistant` 和结构化 `ProjectAssista
 
 TASK-016 在 `dashboard/` 建立独立的 Sites/Vinext 本地界面。Dashboard 只投影已发布的项目状态、历史和关系基线，不读取远端数据、不写入 Core，也不配置云资源。
 
+TASK-017 在同一界面层增加标准 Web App Manifest、移动 Viewport、安全区域和触控导航。它不建立公网连接、后台同步或原生应用。
+
 仓库目前没有具体模型适配器、Git 分析、移动访问、控制入口、API 或其他后续业务能力。
 
 ## 设计约束
@@ -68,3 +70,4 @@ TASK-016 在 `dashboard/` 建立独立的 Sites/Vinext 本地界面。Dashboard 
 Provider-neutral 项目理解见 [ADR-0013](decisions/ADR-0013-provider-neutral-ai-understanding.md)。
 只读 AI Project Assistant 见 [ADR-0014](decisions/ADR-0014-read-only-ai-project-assistant.md)。
 本地只读 Dashboard 见 [ADR-0015](decisions/ADR-0015-local-dashboard.md)。
+移动端本地 Web 访问见 [ADR-0016](decisions/ADR-0016-mobile-local-web-access.md)。

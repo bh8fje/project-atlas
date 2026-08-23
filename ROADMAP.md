@@ -35,11 +35,11 @@
 ## Phase 5 - Interface（IN PROGRESS）
 
 - TASK-016 Local Dashboard — COMPLETED
-- TASK-017 Mobile Access — PLANNED
+- TASK-017 Mobile Access — COMPLETED
 - TASK-018 Command Center — PLANNED
 
 ## 后续阶段（PLANNED）
 
 - Phase 6 - Advanced Intelligence：TASK-019 至 TASK-020
 
-TASK-016 已完成。下一任务为 TASK-017 Mobile Access；尚未实现专门的移动访问能力。
+TASK-017 已完成。下一任务为 TASK-018 Command Center；尚未实现控制操作。

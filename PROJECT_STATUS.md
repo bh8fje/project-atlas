@@ -4,9 +4,9 @@
 
 Phase 5 - Interface（IN PROGRESS）。
 
-TASK-016 COMPLETED。
+TASK-017 COMPLETED。
 
-当前版本：`v0.16.0`。
+当前版本：`v0.17.0`。
 
 ## 当前能力
 
@@ -40,14 +40,16 @@ TASK-016 COMPLETED。
 - 已支持严格回答/建议/注意事项结构、Project 一致性校验和失败透明传播。
 - 已提供独立构建的 Sites/Vinext 本地只读 Dashboard，展示项目状态、历史和关系基线。
 - Dashboard 未配置云资源，不调用远端服务，不写入 Core。
-- 尚无具体模型适配器、Git 分析、移动访问、控制入口或 API。
+- 已提供移动安全区域、触控导航、Viewport 与可安装 Web App Manifest。
+- 移动访问不建立公网入口、账号、后台同步或远程数据通道。
+- 尚无具体模型适配器、Git 分析、控制入口或 API。
 
 ## 工程基线
 
 - 状态：已建立目录、配置、文档与开发规范基线
 - 运行环境：Python 3.11+；Dashboard 构建需要 Node.js 22.13+
 - 测试框架：Python `unittest`
-- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，110 项测试通过；`dashboard/` 生产构建通过
+- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，114 项测试通过；`dashboard/` 生产构建通过
 - 版本控制：Git 已纳入 TASK-001 完成流程
 - 远端镜像：GitHub `bh8fje/project-atlas` 与群晖 `project-atlas.git`
 - 发布规则：所有发布提交必须双推送并分别验证
@@ -56,5 +58,5 @@ TASK-016 COMPLETED。
 
 ## 下一步
 
-- 开始 TASK-017 Mobile Access。
-- 不提前实现 TASK-018 Command Center。
+- 开始 TASK-018 Command Center。
+- 不提前实现 TASK-019 Multi Project Intelligence。
