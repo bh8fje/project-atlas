@@ -12,7 +12,9 @@ TASK-006 在 `src/project_atlas/fingerprint/` 建立稳定本地项目身份和�
 
 TASK-007 在 Domain 层建立 `ProjectSnapshot`、`ProjectChange` 和 `ProjectHistoryEvent`。这些对象只表达历史事实与引用，不负责生成、比较、排序或保存历史。
 
-仓库目前没有自动变化检测、时间线、Git 分析、内容语义分析、AI 分析、Dashboard、数据库、API 或其他后续业务能力。
+TASK-008 在 `src/project_atlas/history/` 建立纯内存变化检测层。该层比较调用者提供的两个 `ProjectStructure`，以相对路径和资产元数据生成有序 `ProjectChange`，不自行扫描或保存结果。
+
+仓库目前没有时间线、Git 分析、内容语义分析、AI 分析、Dashboard、数据库、API 或其他后续业务能力。
 
 ## 设计约束
 
@@ -28,6 +30,7 @@ TASK-007 在 Domain 层建立 `ProjectSnapshot`、`ProjectChange` 和 `ProjectHi
 - `src/project_atlas/discovery/`：受 `DiscoveryScope` 约束的只读文件系统发现，不分析项目内部结构。
 - `src/project_atlas/analysis/`：受深度和资产数量约束的结构与技术标记分析，不读取文件内容。
 - `src/project_atlas/fingerprint/`：生成稳定本地身份和版本化元数据摘要，不保存历史或判断变化类型。
+- `src/project_atlas/history/`：比较显式提供的结构并生成变化事实，不采集、持久化或展示历史。
 - 未来基础设施或应用层只能依赖 Domain 层；Domain 层不得反向依赖它们。
 - 只有获得具体 Task 授权后，才可增加发现、持久化、分析或界面模块。
 
@@ -37,3 +40,4 @@ TASK-007 在 Domain 层建立 `ProjectSnapshot`、`ProjectChange` 和 `ProjectHi
 结构分析边界见 [ADR-0004](decisions/ADR-0004-project-structure-analysis.md)。
 项目指纹决策见 [ADR-0005](decisions/ADR-0005-project-fingerprint.md)。
 项目历史模型见 [ADR-0006](decisions/ADR-0006-project-history-model.md)。
+结构变化检测见 [ADR-0007](decisions/ADR-0007-structure-change-detection.md)。

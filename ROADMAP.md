@@ -17,7 +17,7 @@
 ## Phase 2 - Project Memory（IN PROGRESS）
 
 - TASK-007 Project History Model — COMPLETED
-- TASK-008 Change Detection Engine — PLANNED
+- TASK-008 Change Detection Engine — COMPLETED
 - TASK-009 Project Timeline — PLANNED
 
 ## 后续阶段（PLANNED）
@@ -27,4 +27,4 @@
 - Phase 5 - Interface：TASK-016 至 TASK-018
 - Phase 6 - Advanced Intelligence：TASK-019 至 TASK-020
 
-下一任务为 TASK-008 Change Detection Engine；不提前实现 TASK-009 时间线。
+下一任务为 TASK-009 Project Timeline；不提前实现 TASK-010 关系图。
