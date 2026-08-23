@@ -4,9 +4,9 @@ from collections.abc import Iterable
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
-from uuid import uuid4
 
 from project_atlas.domain import Project, ProjectStatus
+from project_atlas.fingerprint import ProjectIdentityGenerator
 
 
 DEFAULT_PROJECT_MARKERS = frozenset(
@@ -164,7 +164,7 @@ class LocalProjectDiscoveryEngine:
     @staticmethod
     def _to_project(path: Path, *, observed_at: datetime) -> Project:
         return Project(
-            id=str(uuid4()),
+            id=ProjectIdentityGenerator.stable_id(path),
             name=path.name or path.anchor,
             path=str(path),
             created_at=observed_at,

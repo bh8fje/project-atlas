@@ -2,6 +2,7 @@
 
 from .asset import AssetRelationship, ProjectArtifact
 from .enums import ArtifactType, ProjectStatus, RelationshipType, TaskStatus
+from .fingerprint import ProjectFingerprint
 from .project import Project
 from .repository import Repository
 from .snapshot import RepositorySnapshot
@@ -13,6 +14,7 @@ __all__ = [
     "AssetRelationship",
     "Project",
     "ProjectArtifact",
+    "ProjectFingerprint",
     "ProjectStatus",
     "ProjectStructure",
     "RelationshipType",

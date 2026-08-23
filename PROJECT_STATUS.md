@@ -2,11 +2,11 @@
 
 ## 当前阶段
 
-Phase 1 - Project Discovery。
+Phase 1 - Project Discovery（COMPLETED）。
 
-TASK-005 COMPLETED。
+TASK-006 COMPLETED。
 
-当前版本：`v0.5.0`。
+当前版本：`v0.6.0`。
 
 ## 当前能力
 
@@ -19,14 +19,16 @@ TASK-005 COMPLETED。
 - 已支持通过基础项目标记识别候选项目并创建 `Project` 实例。
 - 已支持对项目目录、文件、文档、源码和配置进行有边界的结构分类。
 - 已提供 `ProjectStructure`、包含关系、技术标签与资产类型计数。
-- 尚无稳定项目指纹、变化检测、Git 分析、内容语义分析、AI、持久化、API 或界面功能。
+- 已提供基于规范化本地路径的稳定 Project ID。
+- 已提供 `sha256-metadata-v1` 项目结构指纹、校验、序列化与状态匹配。
+- 尚无项目历史、变化分类、Git 分析、内容语义分析、AI、持久化、API 或界面功能。
 
 ## 工程基线
 
 - 状态：已建立目录、配置、文档与开发规范基线
 - 运行环境：Python 3.11+，无第三方运行时依赖
 - 测试框架：Python `unittest`
-- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，38 项测试通过
+- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，47 项测试通过
 - 版本控制：Git 已纳入 TASK-001 完成流程
 - 远端镜像：GitHub `bh8fje/project-atlas` 与群晖 `project-atlas.git`
 - 发布规则：所有发布提交必须双推送并分别验证
@@ -35,4 +37,5 @@ TASK-005 COMPLETED。
 
 ## 下一步
 
-- 等待 TASK-006 的执行；不提前实现变化检测。
+- 开始 TASK-007 Project History Model。
+- 不提前实现 TASK-008 的变化检测引擎。
