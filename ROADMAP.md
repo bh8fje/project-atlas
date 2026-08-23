@@ -29,7 +29,7 @@
 ## Phase 4 - AI Intelligence（IN PROGRESS）
 
 - TASK-013 AI Context Builder — COMPLETED
-- TASK-014 AI Project Understanding — PLANNED
+- TASK-014 AI Project Understanding — COMPLETED
 - TASK-015 AI Project Assistant — PLANNED
 
 ## 后续阶段（PLANNED）
@@ -37,4 +37,4 @@
 - Phase 5 - Interface：TASK-016 至 TASK-018
 - Phase 6 - Advanced Intelligence：TASK-019 至 TASK-020
 
-下一任务为 TASK-014 AI Project Understanding；不提前实现 TASK-015 Assistant。
+下一任务为 TASK-015 AI Project Assistant；不提前实现 TASK-016 Dashboard。

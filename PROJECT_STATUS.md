@@ -4,9 +4,9 @@
 
 Phase 4 - AI Intelligence（IN PROGRESS）。
 
-TASK-013 COMPLETED。
+TASK-014 COMPLETED。
 
-当前版本：`v0.13.0`。
+当前版本：`v0.14.0`。
 
 ## 当前能力
 
@@ -34,14 +34,16 @@ TASK-013 COMPLETED。
 - 已支持类型、Project、时间范围、限制条件和本地全部词项匹配。
 - 已提供 `AIContext` 与本地 `AIContextBuilder`，支持来源追踪、确定性排序和字符上限。
 - 已对常见密码、令牌、密钥和授权字段进行递归脱敏。
-- 尚无 AI 项目分析、Git 分析、模型调用、API 或界面功能。
+- 已定义 `AIProvider`、`AIRequest`、`AIProviderResponse` 和结构化 `ProjectUnderstanding`。
+- 已提供显式项目理解服务、严格 JSON 校验、Provider/模型归属和失败透明传播。
+- 尚无具体模型适配器、AI Assistant、Git 分析、API 或界面功能。
 
 ## 工程基线
 
 - 状态：已建立目录、配置、文档与开发规范基线
 - 运行环境：Python 3.11+，无第三方运行时依赖
 - 测试框架：Python `unittest`
-- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，94 项测试通过
+- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，100 项测试通过
 - 版本控制：Git 已纳入 TASK-001 完成流程
 - 远端镜像：GitHub `bh8fje/project-atlas` 与群晖 `project-atlas.git`
 - 发布规则：所有发布提交必须双推送并分别验证
@@ -50,5 +52,5 @@ TASK-013 COMPLETED。
 
 ## 下一步
 
-- 开始 TASK-014 AI Project Understanding。
-- 不提前实现 TASK-015 AI Project Assistant。
+- 开始 TASK-015 AI Project Assistant。
+- 不提前实现 TASK-016 Local Dashboard。

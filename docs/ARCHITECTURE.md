@@ -24,7 +24,9 @@ TASK-012 在 Domain 与 Knowledge 层建立结构化查询、只读查询结果�
 
 TASK-013 在 Domain 与 `src/project_atlas/intelligence/` 建立有来源、字段脱敏和字符上限的 `AIContext`。构建过程完全本地，不调用模型。
 
-仓库目前没有 AI 项目分析、Git 分析、模型调用、Dashboard、API 或其他后续业务能力。
+TASK-014 建立 `AIProvider` 可替换接口和 `AIProjectUnderstandingService`。服务只在显式调用时向注入的 Provider 发送已准备 Context，并把严格 JSON 转换为可溯源的 `ProjectUnderstanding`。
+
+仓库目前没有具体模型适配器、AI Assistant、Git 分析、Dashboard、API 或其他后续业务能力。
 
 ## 设计约束
 
@@ -42,7 +44,7 @@ TASK-013 在 Domain 与 `src/project_atlas/intelligence/` 建立有来源、字�
 - `src/project_atlas/fingerprint/`：生成稳定本地身份和版本化元数据摘要，不保存历史或判断变化类型。
 - `src/project_atlas/history/`：比较显式提供的结构并生成变化事实，不采集、持久化或展示历史。
 - `src/project_atlas/knowledge/`：构建显式项目关系图，并在调用者指定的 SQLite 文件中保存版本化知识记录；不自动采集或推断关系。
-- `src/project_atlas/intelligence/`：准备受控 AI 上下文；当前不连接任何模型提供方。
+- `src/project_atlas/intelligence/`：准备受控 AI 上下文，并通过调用者注入的 Provider 执行结构化分析；不内置凭据或端点。
 - 未来基础设施或应用层只能依赖 Domain 层；Domain 层不得反向依赖它们。
 - 只有获得具体 Task 授权后，才可增加发现、持久化、分析或界面模块。
 
@@ -58,3 +60,4 @@ TASK-013 在 Domain 与 `src/project_atlas/intelligence/` 建立有来源、字�
 本地知识存储见 [ADR-0010](decisions/ADR-0010-local-knowledge-storage.md)。
 本地知识查询见 [ADR-0011](decisions/ADR-0011-local-knowledge-query.md)。
 受控 AI 上下文见 [ADR-0012](decisions/ADR-0012-bounded-ai-context.md)。
+Provider-neutral 项目理解见 [ADR-0013](decisions/ADR-0013-provider-neutral-ai-understanding.md)。

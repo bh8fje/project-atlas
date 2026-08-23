@@ -23,6 +23,7 @@ from .snapshot import RepositorySnapshot
 from .structure import ProjectStructure
 from .task import Task
 from .timeline import ProjectTimeline
+from .understanding import ProjectUnderstanding
 
 __all__ = [
     "AIContext",
@@ -46,6 +47,7 @@ __all__ = [
     "ProjectStatus",
     "ProjectStructure",
     "ProjectTimeline",
+    "ProjectUnderstanding",
     "RelationshipType",
     "Repository",
     "RepositorySnapshot",
