@@ -129,8 +129,35 @@ class WorkspaceScanServiceTests(unittest.TestCase):
         self.assertEqual(persisted[0]["change_status"], "added")
         self.assertEqual(
             summary,
-            {"project_count": 1, "added": 1, "changed": 0, "removed": 0},
+            {
+                "project_count": 1,
+                "added": 1,
+                "changed": 0,
+                "removed": 0,
+                "limited": 0,
+            },
         )
+
+    def test_oversized_project_is_reported_without_stopping_workspace_scan(self) -> None:
+        class OversizedAnalyzer:
+            def analyze(self, project: object, *, analyzed_at: datetime) -> None:
+                raise ValueError("project structure exceeds max_artifacts")
+
+        with TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            project = root / "large-project"
+            project.mkdir()
+            (project / "package.json").write_text("{}", encoding="utf-8")
+            registry, service = self._services(root)
+            service._analyzer = OversizedAnalyzer()  # type: ignore[assignment]
+            workspace = registry.add(root, added_at=ADDED_AT)
+
+            report = service.scan(workspace.id, scanned_at=ADDED_AT)
+
+        self.assertEqual(report.to_dict()["summary"]["limited"], 1)
+        self.assertEqual(report.projects[0]["analysis_status"], "limited")
+        self.assertIsNone(report.projects[0]["artifact_count"])
+        self.assertEqual(len(report.limited_project_ids), 1)
 
     def test_reports_changed_and_removed_projects(self) -> None:
         with TemporaryDirectory() as temporary_directory:

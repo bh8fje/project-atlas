@@ -48,6 +48,8 @@ TASK-024 规定 Dashboard 的静态数字必须标记为发布记录，项目组
 
 TASK-025 在 `src/project_atlas/application/workspaces.py` 与 `src/project_atlas/local_service.py` 建立本机项目目录管理。用户通过操作系统选择器批准目录，本机服务复用既有发现、结构分析和指纹能力，并把轻量检查状态保存在本机 JSON 文件中。Dashboard 只通过固定回环地址读取这部分本机检查结果；决策见 `docs/decisions/ADR-0024-local-workspace-monitoring.md`。
 
+v0.25.1 保留结构分析的 10,000 项保护上限，并在工作区协调层将超过上限的单个项目记录为受限。受限项目不生成完整结构指纹，但不会阻断同一目录中其他项目的识别。
+
 仓库目前没有具体模型适配器、Git commit 分析、公网服务、后台 Agent 调度、自动修改或外部 API。本机目录服务不监听局域网或公网，也不是常驻系统服务。
 
 ## 设计约束

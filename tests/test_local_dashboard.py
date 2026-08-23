@@ -78,7 +78,7 @@ class LocalDashboardTests(unittest.TestCase):
 
     def test_workspace_manager_displays_the_latest_check_summary(self) -> None:
         manager = (DASHBOARD / "app" / "workspace-manager.tsx").read_text()
-        for field in ("project_count", "added", "changed", "removed"):
+        for field in ("project_count", "added", "changed", "removed", "limited"):
             self.assertIn(f"last_summary.{field}", manager)
         self.assertIn("change_status", manager)
 

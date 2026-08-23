@@ -6,7 +6,7 @@ Phase 8 - Local Operations（COMPLETED）。
 
 TASK-025 COMPLETED。
 
-当前版本：`v0.25.0`。
+当前版本：`v0.25.1`。
 
 ## 当前能力
 
@@ -64,6 +64,7 @@ TASK-025 COMPLETED。
 - Dashboard “项目目录”模块显示最近检查时间、已识别项目和新增、变化、移除摘要，并每 10 秒读取一次本机最新结果。
 - 本机服务只监听回环地址，仅接受明确的本地 Dashboard 来源；路径与检查记录不传输到外部网络。
 - 关闭本机服务后自动检查停止；移除目录只删除登记与检查记录，不删除或修改用户项目文件。
+- 超过 10,000 项结构检查上限的单个项目会标记为“超过当前检查范围”；它不会再中断同一目录中其他项目的识别。
 - 尚无具体模型适配器、Git commit 分析、公网服务、常驻系统服务或外部 API。
 
 ## 工程基线
@@ -71,7 +72,7 @@ TASK-025 COMPLETED。
 - 状态：已建立目录、配置、文档与开发规范基线
 - 运行环境：Python 3.11+；Dashboard 构建需要 Node.js 22.13+
 - 测试框架：Python `unittest`
-- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，168 项测试通过；`dashboard/` 生产构建通过；Dashboard 与本机服务预览均返回 HTTP 200
+- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，169 项测试通过；`dashboard/` 生产构建通过；Dashboard 与本机服务预览均返回 HTTP 200
 - 版本控制：Git 已纳入 TASK-001 完成流程
 - 远端镜像：GitHub `bh8fje/project-atlas` 与群晖 `project-atlas.git`
 - 发布规则：所有发布提交必须双推送并分别验证

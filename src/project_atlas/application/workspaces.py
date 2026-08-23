@@ -203,6 +203,7 @@ class WorkspaceScanReport:
     added_project_ids: tuple[str, ...]
     changed_project_ids: tuple[str, ...]
     removed_project_ids: tuple[str, ...]
+    limited_project_ids: tuple[str, ...]
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -213,6 +214,7 @@ class WorkspaceScanReport:
                 "added": len(self.added_project_ids),
                 "changed": len(self.changed_project_ids),
                 "removed": len(self.removed_project_ids),
+                "limited": len(self.limited_project_ids),
             },
         }
 
@@ -246,25 +248,42 @@ class WorkspaceScanService:
             project_rows: list[dict[str, Any]] = []
             added: list[str] = []
             changed: list[str] = []
+            limited: list[str] = []
 
             for project in projects:
-                structure = self._analyzer.analyze(project, analyzed_at=timestamp)
-                fingerprint = self._fingerprints.generate(
-                    structure, generated_at=timestamp
-                )
-                row = {
-                    "id": project.id,
-                    "name": project.name,
-                    "path": project.path,
-                    "artifact_count": structure.artifact_count,
-                    "technologies": list(structure.technologies),
-                    "fingerprint": fingerprint.digest,
-                }
+                try:
+                    structure = self._analyzer.analyze(project, analyzed_at=timestamp)
+                except ValueError as error:
+                    if str(error) != "project structure exceeds max_artifacts":
+                        raise
+                    limited.append(project.id)
+                    row = {
+                        "id": project.id,
+                        "name": project.name,
+                        "path": project.path,
+                        "artifact_count": None,
+                        "technologies": [],
+                        "fingerprint": None,
+                        "analysis_status": "limited",
+                    }
+                else:
+                    fingerprint = self._fingerprints.generate(
+                        structure, generated_at=timestamp
+                    )
+                    row = {
+                        "id": project.id,
+                        "name": project.name,
+                        "path": project.path,
+                        "artifact_count": structure.artifact_count,
+                        "technologies": list(structure.technologies),
+                        "fingerprint": fingerprint.digest,
+                        "analysis_status": "complete",
+                    }
                 old = previous.get(project.id)
                 if old is None:
                     status = "added"
                     added.append(project.id)
-                elif old.get("fingerprint") != fingerprint.digest:
+                elif old.get("fingerprint") != row["fingerprint"]:
                     status = "changed"
                     changed.append(project.id)
                 else:
@@ -279,6 +298,7 @@ class WorkspaceScanService:
                 "added": len(added),
                 "changed": len(changed),
                 "removed": len(removed),
+                "limited": len(limited),
             }
             self._state_store.put(workspace_id, current, summary=summary)
             updated_workspace = self._registry.mark_scanned(workspace_id, timestamp)
@@ -288,6 +308,7 @@ class WorkspaceScanService:
                 added_project_ids=tuple(sorted(added)),
                 changed_project_ids=tuple(sorted(changed)),
                 removed_project_ids=tuple(removed),
+                limited_project_ids=tuple(sorted(limited)),
             )
 
     def latest_projects(self, workspace_id: str) -> tuple[dict[str, Any], ...]:
@@ -305,6 +326,7 @@ class WorkspaceScanService:
             "added": 0,
             "changed": 0,
             "removed": 0,
+            "limited": 0,
             **self._state_store.get_summary(workspace_id),
         }
 

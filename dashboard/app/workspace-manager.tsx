@@ -11,8 +11,9 @@ type ProjectRow = {
   id: string;
   name: string;
   path: string;
-  artifact_count: number;
+  artifact_count: number | null;
   technologies: string[];
+  analysis_status: 'complete' | 'limited';
   change_status: 'added' | 'changed' | 'unchanged' | 'recorded';
 };
 
@@ -29,6 +30,7 @@ type WorkspaceRow = {
     added: number;
     changed: number;
     removed: number;
+    limited: number;
   };
 };
 
@@ -156,6 +158,7 @@ export default function WorkspaceManager({ copy, language }: { copy: WorkspaceTr
               <span><strong>{workspace.last_summary.added}</strong>{copy.newProjects}</span>
               <span><strong>{workspace.last_summary.changed}</strong>{copy.changedProjects}</span>
               <span><strong>{workspace.last_summary.removed}</strong>{copy.removedProjects}</span>
+              <span><strong>{workspace.last_summary.limited}</strong>{copy.limitedProjects}</span>
             </div>
             <div className="project-list">
               <div className="project-list-title"><strong>{copy.discoveredProjects}</strong><span>{workspace.projects.length}</span></div>
@@ -163,7 +166,7 @@ export default function WorkspaceManager({ copy, language }: { copy: WorkspaceTr
               {workspace.projects.map((project) => (
                 <div className="project-row" key={project.id}>
                   <div><strong>{project.name}</strong><small>{project.path}</small></div>
-                  <div className="project-meta"><span className={`change-status ${project.change_status}`}>{copy.changeStatus[project.change_status]}</span><span>{project.technologies.join(' · ') || copy.unknownTechnology}</span><small>{project.artifact_count} {copy.items}</small></div>
+                  <div className="project-meta"><span className={`change-status ${project.change_status}`}>{copy.changeStatus[project.change_status]}</span>{project.analysis_status === 'limited' ? <span className="analysis-limited">{copy.analysisLimited}</span> : <span>{project.technologies.join(' · ') || copy.unknownTechnology}</span>}<small>{project.artifact_count === null ? copy.assetCountUnavailable : `${project.artifact_count} ${copy.items}`}</small></div>
                 </div>
               ))}
             </div>
