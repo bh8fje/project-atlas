@@ -31,3 +31,4 @@ git switch -c restore/v0.2.0 v0.2.0
 - `v0.1.0`：TASK-001，工程初始化与双远端发布基线。
 - `v0.2.0`：TASK-002，核心领域模型基础。
 - `v0.3.0`：TASK-003，Repository Asset 模型基础。
+- `v0.3.1`：建立 Project Atlas Execution Plan Version 1.0。

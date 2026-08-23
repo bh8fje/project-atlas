@@ -27,6 +27,7 @@ TASK-003 COMPLETED。
 - 远端镜像：GitHub `bh8fje/project-atlas` 与群晖 `project-atlas.git`
 - 发布规则：所有发布提交必须双推送并分别验证
 - 版本规则：每个里程碑使用带备注的 Git 标签，规范见 `docs/VERSIONING.md`
+- 执行计划：`EXECUTION_PLAN.md` Version 1.0，状态 ACTIVE
 
 ## 下一步
 

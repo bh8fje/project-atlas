@@ -17,6 +17,7 @@ project-atlas/
 ├── src/project_atlas/   # Python 源码包与纯内存领域模型
 ├── tests/               # 自动化测试
 ├── AGENTS.md            # 协作与 Task 执行规则
+├── EXECUTION_PLAN.md    # 长期阶段与 Task 执行计划
 ├── PROJECT_STATUS.md    # 当前状态和最近验证结果
 ├── ROADMAP.md           # 阶段路线图
 └── pyproject.toml       # 项目及工具配置
@@ -46,4 +47,4 @@ python3 -m unittest discover -s tests -v
 
 ## 开发约定
 
-开始工作前请阅读 [AGENTS.md](AGENTS.md) 与 [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md)。项目状态以 [PROJECT_STATUS.md](PROJECT_STATUS.md) 为准，方向规划以 [ROADMAP.md](ROADMAP.md) 为准。
+开始工作前请阅读 [AGENTS.md](AGENTS.md)、[EXECUTION_PLAN.md](EXECUTION_PLAN.md) 与 [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md)。项目状态以 [PROJECT_STATUS.md](PROJECT_STATUS.md) 为准，执行阶段以 [EXECUTION_PLAN.md](EXECUTION_PLAN.md) 为准，方向摘要以 [ROADMAP.md](ROADMAP.md) 为准。
