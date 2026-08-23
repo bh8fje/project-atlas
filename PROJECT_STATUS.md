@@ -6,6 +6,8 @@ Phase 0 - Foundation。
 
 TASK-002 COMPLETED。
 
+当前版本：`v0.2.0`。
+
 ## 当前能力
 
 - 已定义 `Project` 与 `Task` 核心领域模型。
@@ -22,6 +24,7 @@ TASK-002 COMPLETED。
 - 版本控制：Git 已纳入 TASK-001 完成流程
 - 远端镜像：GitHub `bh8fje/project-atlas` 与群晖 `project-atlas.git`
 - 发布规则：所有发布提交必须双推送并分别验证
+- 版本规则：每个里程碑使用带备注的 Git 标签，规范见 `docs/VERSIONING.md`
 
 ## 下一步
 
