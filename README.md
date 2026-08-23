@@ -2,7 +2,7 @@
 
 Project Atlas 是一个本地优先的 AI 项目知识地图系统，旨在帮助用户长期理解和管理自己的软件项目资产。
 
-当前仓库仅包含工程基础设施，不包含任何业务功能。
+当前仓库包含工程基础设施与核心领域契约，不包含项目发现、分析或其他业务功能。
 
 ## 项目目标
 
@@ -14,7 +14,7 @@ Project Atlas 是一个本地优先的 AI 项目知识地图系统，旨在帮�
 project-atlas/
 ├── config/              # 配置约定与示例（当前无业务配置）
 ├── docs/                # 架构、开发与决策文档
-├── src/project_atlas/   # Python 源码包（当前仅含版本元数据）
+├── src/project_atlas/   # Python 源码包与纯内存领域模型
 ├── tests/               # 自动化测试
 ├── AGENTS.md            # 协作与 Task 执行规则
 ├── PROJECT_STATUS.md    # 当前状态和最近验证结果
