@@ -2,11 +2,11 @@
 
 ## 当前阶段
 
-Phase 0 - Foundation。
+Phase 1 - Project Discovery。
 
-TASK-003 COMPLETED。
+TASK-004 COMPLETED。
 
-当前版本：`v0.3.0`。
+当前版本：`v0.4.0`。
 
 ## 当前能力
 
@@ -15,14 +15,16 @@ TASK-003 COMPLETED。
 - 已提供基础校验、Task 状态迁移及 JSON 兼容的字典序列化。
 - 已定义 `ProjectArtifact`、`Repository`、`RepositorySnapshot` 与 `AssetRelationship` 项目资产模型。
 - 已定义 `ArtifactType` 与 `RelationshipType` 资产分类和关系类型。
-- 尚无项目发现、扫描、Git 分析、AI、持久化、API 或界面功能。
+- 已提供显式扫描根目录、最大深度、排除目录和符号链接边界的本地项目发现引擎。
+- 已支持通过基础项目标记识别候选项目并创建 `Project` 实例。
+- 尚无项目结构分析、技术栈识别、Git 分析、AI、持久化、API 或界面功能。
 
 ## 工程基线
 
 - 状态：已建立目录、配置、文档与开发规范基线
 - 运行环境：Python 3.11+，无第三方运行时依赖
 - 测试框架：Python `unittest`
-- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，21 项测试通过
+- 最近验证：2026-08-23，`python3 -m unittest discover -s tests -v`，30 项测试通过
 - 版本控制：Git 已纳入 TASK-001 完成流程
 - 远端镜像：GitHub `bh8fje/project-atlas` 与群晖 `project-atlas.git`
 - 发布规则：所有发布提交必须双推送并分别验证
@@ -31,4 +33,4 @@ TASK-003 COMPLETED。
 
 ## 下一步
 
-- 等待用户明确启动后续 Task；不自动开始 TASK-004。
+- 等待 TASK-005 的明确执行范围；不自动实现项目结构分析。

@@ -91,9 +91,11 @@ Project Atlas 将经历以下阶段。
 
 目标：让 Project Atlas 能发现和描述软件项目。
 
-状态：NEXT
+状态：IN PROGRESS
 
 #### TASK-004 Local Project Discovery Engine
+
+状态：COMPLETED
 
 目标：发现本地项目。
 
@@ -286,10 +288,10 @@ AI 不能：
 
 ## 7. Current Execution State
 
-- Current Phase: Phase 0 - Foundation — COMPLETED
-- Completed: TASK-001、TASK-002、TASK-003
-- Current: 无进行中的 Task，等待用户明确启动
-- Next: TASK-004
+- Current Phase: Phase 1 - Project Discovery — IN PROGRESS
+- Completed: TASK-001、TASK-002、TASK-003、TASK-004
+- Current: 无进行中的 Task
+- Next: TASK-005
 
 ## 8. Final Vision
 

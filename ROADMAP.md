@@ -1,21 +1,25 @@
 # Project Atlas 路线图
 
-路线图描述方向，不构成对未开始 Task 的授权。每个阶段必须由独立 Task 启动。
+路线图描述阶段状态与方向。实际范围仍以当前 Task 的 Allowed Scope 和 Forbidden Scope 为准。
 
-## 阶段 0：工程初始化
+## Phase 0 - Foundation（COMPLETED）
 
-- 建立目录与配置基线
-- 建立协作、测试和状态记录规范
-- 初始化版本控制
-- 建立 Project、Task 与生命周期状态的核心领域契约
-- 建立 Repository、Artifact、Snapshot 与 Relationship 资产契约
+- TASK-001 Project Initialization — COMPLETED
+- TASK-002 Core Domain Foundation — COMPLETED
+- TASK-003 Repository Asset Model Foundation — COMPLETED
 
-## 后续候选阶段
+## Phase 1 - Project Discovery（IN PROGRESS）
 
-- 项目发现：定义本地项目识别边界与安全模型
-- 项目理解：建立可解释的项目结构与语义表示
-- 历史重建：从版本记录重建重要变化脉络
-- 关系分析：表达项目、组件和历史事件之间的关系
-- 交互体验：在核心模型稳定后设计用户界面
+- TASK-004 Local Project Discovery Engine — COMPLETED
+- TASK-005 Project Structure Analyzer — PLANNED
+- TASK-006 Project Fingerprint System — PLANNED
 
-后续阶段当前均未实现，也不属于 TASK-001。
+## 后续阶段（PLANNED）
+
+- Phase 2 - Project Memory：TASK-007 至 TASK-009
+- Phase 3 - Knowledge Map：TASK-010 至 TASK-012
+- Phase 4 - AI Intelligence：TASK-013 至 TASK-015
+- Phase 5 - Interface：TASK-016 至 TASK-018
+- Phase 6 - Advanced Intelligence：TASK-019 至 TASK-020
+
+TASK-004 已完成。下一候选任务是 TASK-005，尚未开始。

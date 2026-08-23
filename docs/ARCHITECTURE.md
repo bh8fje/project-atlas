@@ -4,7 +4,9 @@
 
 TASK-002 与 TASK-003 在 `src/project_atlas/domain/` 建立纯内存领域契约。Domain 层定义 Project、Task、Repository、Artifact、Snapshot、Relationship、生命周期状态、基础校验和序列化，不执行 I/O，也不依赖基础设施。
 
-仓库目前没有项目发现、文件扫描、Git 分析、AI 分析、Dashboard、数据库、API 或其他业务能力。
+TASK-004 在 `src/project_atlas/discovery/` 建立有显式边界的本地项目发现层。该层可以识别候选项目根目录并创建 `Project`，但不分析项目内容。
+
+仓库目前没有项目结构分析、技术栈识别、Git 分析、AI 分析、Dashboard、数据库、API 或其他后续业务能力。
 
 ## 设计约束
 
@@ -17,8 +19,10 @@ TASK-002 与 TASK-003 在 `src/project_atlas/domain/` 建立纯内存领域契�
 ## 分层边界
 
 - `src/project_atlas/domain/`：稳定的领域语言与不变量，不访问外部系统。
+- `src/project_atlas/discovery/`：受 `DiscoveryScope` 约束的只读文件系统发现，不分析项目内部结构。
 - 未来基础设施或应用层只能依赖 Domain 层；Domain 层不得反向依赖它们。
 - 只有获得具体 Task 授权后，才可增加发现、持久化、分析或界面模块。
 
 领域模型决策见 [ADR-0001](decisions/ADR-0001-domain-model.md)。
 资产抽象决策见 [ADR-0002](decisions/ADR-0002-repository-asset-model.md)。
+本地发现边界见 [ADR-0003](decisions/ADR-0003-local-project-discovery.md)。
