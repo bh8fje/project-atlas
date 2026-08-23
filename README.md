@@ -2,7 +2,7 @@
 
 Project Atlas 是一个本地优先的 AI 项目知识地图系统，旨在帮助用户长期理解和管理自己的软件项目资产。
 
-当前仓库包含工程基础设施、项目发现与结构分析、历史与时间线、知识存储与查询、受控 AI 上下文，以及可替换 Provider 驱动的结构化项目理解。尚不包含具体模型适配器、AI Assistant、Git 分析、API 或界面。
+当前仓库包含工程基础设施、项目发现与结构分析、历史与时间线、知识存储与查询、受控 AI 上下文、结构化项目理解，以及单轮只读 AI Project Assistant。尚不包含具体模型适配器、Git 分析、Dashboard、移动访问或 API。
 
 ## 项目目标
 
@@ -83,6 +83,8 @@ with LocalKnowledgeStore("./data/project-atlas.db") as store:
 `AIContextBuilder` 可将调用者选定的知识记录整理为本地上下文。它会按敏感字段名递归脱敏并执行字符上限，但不会调用任何 AI 服务。
 
 `AIProjectUnderstandingService` 只在调用者显式执行时调用所注入的 `AIProvider`。仓库不内置模型账号、密钥、端点或自动重试；Provider 实现由部署方选择。
+
+`AIProjectAssistant` 使用同一可替换 Provider 回答单个项目问题。它不会保存会话、执行建议或修改项目。
 
 ## 开发约定
 

@@ -26,7 +26,9 @@ TASK-013 在 Domain 与 `src/project_atlas/intelligence/` 建立有来源、字�
 
 TASK-014 建立 `AIProvider` 可替换接口和 `AIProjectUnderstandingService`。服务只在显式调用时向注入的 Provider 发送已准备 Context，并把严格 JSON 转换为可溯源的 `ProjectUnderstanding`。
 
-仓库目前没有具体模型适配器、AI Assistant、Git 分析、Dashboard、API 或其他后续业务能力。
+TASK-015 建立单轮、只读 `AIProjectAssistant` 和结构化 `ProjectAssistantAnswer`。Assistant 复用同 Project 的 Context 与 Understanding，不保存会话或执行建议。
+
+仓库目前没有具体模型适配器、Git 分析、Dashboard、移动访问、API 或其他后续业务能力。
 
 ## 设计约束
 
@@ -61,3 +63,4 @@ TASK-014 建立 `AIProvider` 可替换接口和 `AIProjectUnderstandingService`�
 本地知识查询见 [ADR-0011](decisions/ADR-0011-local-knowledge-query.md)。
 受控 AI 上下文见 [ADR-0012](decisions/ADR-0012-bounded-ai-context.md)。
 Provider-neutral 项目理解见 [ADR-0013](decisions/ADR-0013-provider-neutral-ai-understanding.md)。
+只读 AI Project Assistant 见 [ADR-0014](decisions/ADR-0014-read-only-ai-project-assistant.md)。

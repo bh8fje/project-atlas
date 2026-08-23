@@ -2,6 +2,7 @@
 
 from .asset import AssetRelationship, ProjectArtifact
 from .ai_context import AIContext
+from .assistant import ProjectAssistantAnswer
 from .enums import (
     ArtifactType,
     ChangeType,
@@ -36,6 +37,7 @@ __all__ = [
     "KnowledgeQuery",
     "KnowledgeQueryResult",
     "Project",
+    "ProjectAssistantAnswer",
     "ProjectArtifact",
     "ProjectChange",
     "ProjectFingerprint",
